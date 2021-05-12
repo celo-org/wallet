@@ -30,7 +30,7 @@ export interface State {
   acceptedTerms: boolean
   hasMigratedToNewBip39: boolean
   choseToRestoreAccount: boolean | undefined
-  profileUploaded: boolean | undefined
+  profileUploaded: boolean
   recoveringFromStoreWipe: boolean | undefined
   accountToRecoverFromStoreWipe: string | undefined
   dailyLimitCusd: number

@@ -7,6 +7,7 @@ export enum LogoTypes {
   COLOR = 'COLOR',
   DARK = 'DARK',
   LIGHT = 'LIGHT',
+  GREEN = 'GREEN',
 }
 
 interface Props {
@@ -24,6 +25,8 @@ export default function Logo({ style, height = 25, type = LogoTypes.COLOR }: Pro
     case LogoTypes.LIGHT:
       mainColor = colors.light
       break
+    case LogoTypes.GREEN:
+      mainColor = colors.greenBrand
     default:
       break
   }

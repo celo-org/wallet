@@ -166,6 +166,10 @@ export interface ProfileUploadedAction {
   type: Actions.PROFILE_UPLOADED
 }
 
+export interface ProfileUploadedAction {
+  type: Actions.PROFILE_UPLOADED
+}
+
 export interface UpdateDailyLimitAction {
   type: Actions.UPDATE_DAILY_LIMIT
   newLimit: number

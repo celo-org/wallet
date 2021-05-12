@@ -66,7 +66,7 @@ export function getDisplayDetail(recipient: Recipient) {
   if (recipientHasNumber(recipient)) {
     return recipient.displayNumber || recipient.e164PhoneNumber
   } else {
-    return recipient.address.substring(2, 17) + '...'
+    return formatShortenedAddress(recipient.address)
   }
 }
 
@@ -220,8 +220,8 @@ function nameCompare(a: FuzzyRecipient, b: FuzzyRecipient) {
 
 function nameCompareExceptPrioritized(prioritizedRecipients: ContactMatches) {
   return (a: FuzzyRecipient, b: FuzzyRecipient) => {
-    const e164A = a.e164PhoneNumber
-    const e164B = b.e164PhoneNumber
+    const e164A = recipientHasNumber(a) ? a.e164PhoneNumber : undefined
+    const e164B = recipientHasNumber(b) ? b.e164PhoneNumber : undefined
 
     if (e164A && prioritizedRecipients[e164A]) {
       if (e164B && prioritizedRecipients[e164B]) {
