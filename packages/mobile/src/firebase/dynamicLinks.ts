@@ -1,18 +1,20 @@
 import dynamicLinks, { FirebaseDynamicLinksTypes } from '@react-native-firebase/dynamic-links'
 import { DYNAMIC_LINK_DOMAIN } from 'src/config'
-
 import Logger from 'src/utils/Logger'
 
 const TAG = 'firebase/dynamicLink'
+export const DEEPLINK_QUERY_PARAM = 'deeplink'
 
-export async function generateShortInviteLink({
+export async function generateShortLink({
   link,
   appStoreId,
   bundleId,
+  shortLinkType = 'UNGUESSABLE',
 }: {
   link: string
   appStoreId: string | undefined
   bundleId: string
+  shortLinkType: string
 }): Promise<string> {
   try {
     const dynamicLinkParams: FirebaseDynamicLinksTypes.DynamicLinkParameters = {
@@ -33,7 +35,7 @@ export async function generateShortInviteLink({
       dynamicLinkParams,
       // @ts-ignore Remove, when https://github.com/invertase/react-native-firebase/issues/3287 is resolved
       // Please note other parameter than UNGUESSABLE is unsafe
-      'UNGUESSABLE'
+      shortLinkType
     )
     // It is NOT recommended to shorten this link with another
     // shortener (e.g. bit.ly) because it can break deep links

@@ -1,5 +1,6 @@
 import firebase from '@react-native-firebase/app'
 import _ from 'lodash'
+import DeviceInfo from 'react-native-device-info'
 import { call, cancelled, put, spawn, take, takeEvery, takeLeading } from 'redux-saga/effects'
 import {
   Actions,
@@ -17,7 +18,9 @@ import { OnboardingEvents } from 'src/analytics/Events'
 import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { ErrorMessages } from 'src/app/ErrorMessages'
 import { clearStoredMnemonic } from 'src/backup/utils'
-import { FIREBASE_ENABLED } from 'src/config'
+import { WEB_LINK } from 'src/brandingConfig'
+import { APP_STORE_ID, FIREBASE_ENABLED } from 'src/config'
+import { DEEPLINK_QUERY_PARAM, generateShortLink } from 'src/firebase/dynamicLinks'
 import { cUsdDailyLimitChannel, firebaseSignOut } from 'src/firebase/firebase'
 import { deleteNodeData } from 'src/geth/geth'
 import { refreshAllBalances } from 'src/home/actions'
@@ -70,6 +73,20 @@ function* clearStoredAccountSaga({ account, onlyReduxState }: ClearStoredAccount
     Logger.error(TAG + '@clearStoredAccount', 'Error while removing account', error)
     yield put(showError(ErrorMessages.ACCOUNT_CLEAR_FAILED))
   }
+}
+
+export async function generateLinkWithPath(path: string) {
+  let bundleId = DeviceInfo.getBundleId()
+  bundleId = bundleId.replace(/\.(debug|dev)$/g, '.alfajores')
+
+  const shortUrl = await generateShortLink({
+    link: `${WEB_LINK}?${DEEPLINK_QUERY_PARAM}=${path}`,
+    appStoreId: APP_STORE_ID,
+    bundleId,
+    shortLinkType: 'SHORT',
+  })
+
+  return shortUrl
 }
 
 function* initializeAccount() {

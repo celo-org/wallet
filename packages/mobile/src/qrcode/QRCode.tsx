@@ -2,10 +2,13 @@ import colors from '@celo/react-components/styles/colors'
 import fontStyles from '@celo/react-components/styles/fonts'
 import variables from '@celo/react-components/styles/variables'
 import React, { useMemo } from 'react'
+import { useAsync } from 'react-async-hook'
 import { StyleSheet, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { shallowEqual, useSelector } from 'react-redux'
+import { generateLinkWithPath } from 'src/account/saga'
 import { AvatarSelf } from 'src/components/AvatarSelf'
+import ShortAccountLink from 'src/components/ShortAccountLink'
 import QRCode from 'src/qrcode/QRGen'
 import { UriData, urlFromUriData } from 'src/qrcode/schema'
 import { RootState } from 'src/redux/reducers'
@@ -29,12 +32,18 @@ export default function QRCodeDisplay({ qrSvgRef }: Props) {
     data.displayName,
     data.e164PhoneNumber,
   ])
+  const horizontalPadding = 40
+  const getQRSize = () => {
+    return Math.min((variables.width * 3) / 4, variables.width - horizontalPadding * 2)
+  }
+  const link = useAsync(() => generateLinkWithPath(qrContent), [qrContent])
   return (
     <SafeAreaView style={styles.container}>
       <AvatarSelf iconSize={64} displayNameStyle={fontStyles.h2} />
       <View style={styles.qrContainer}>
-        <QRCode value={qrContent} size={variables.width / 2} svgRef={qrSvgRef} />
+        <QRCode value={qrContent} size={getQRSize()} svgRef={qrSvgRef} />
       </View>
+      {!!link.result && <ShortAccountLink shortLink={link.result} />}
     </SafeAreaView>
   )
 }
@@ -46,7 +55,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: colors.light,
   },
-  qrContainer: {
-    paddingTop: 16,
-  },
+  qrContainer: {},
 })

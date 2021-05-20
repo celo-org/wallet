@@ -1,7 +1,7 @@
 import { CURRENCY_ENUM } from '@celo/utils/lib'
+import dynamicLinks from '@react-native-firebase/dynamic-links'
 import { expectSaga } from 'redux-saga-test-plan'
-import * as matchers from 'redux-saga-test-plan/matchers'
-import { select } from 'redux-saga/effects'
+import { call, select } from 'redux-saga/effects'
 import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { appLock, openDeepLink, openUrl, setAppState } from 'src/app/actions'
 import { handleDeepLink, handleOpenUrl, handleSetAppState } from 'src/app/saga'
@@ -42,20 +42,30 @@ describe('App saga', () => {
       .run()
   })
 
-  it('Handles payment deep link', async () => {
-    const data = {
-      address: '0xf7f551752A78Ce650385B58364225e5ec18D96cB',
-      displayName: 'Super 8',
-      currencyCode: 'PHP',
-      amount: '500',
-      comment: '92a53156-c0f2-11ea-b3de-0242ac13000',
-    }
+  const paymentData = {
+    address: '0xf7f551752A78Ce650385B58364225e5ec18D96cB',
+    displayName: 'Super 8',
+    currencyCode: 'PHP',
+    amount: '500',
+    comment: '92a53156-c0f2-11ea-b3de-0242ac13000',
+  }
 
-    const params = new URLSearchParams(data)
+  it('Handles payment deep link', async () => {
+    const params = new URLSearchParams(paymentData)
     const deepLink = `celo://wallet/pay?${params.toString()}`
 
     await expectSaga(handleDeepLink, openDeepLink(deepLink))
-      .provide([[matchers.call.fn(handlePaymentDeeplink), deepLink]])
+      .call(handlePaymentDeeplink, deepLink)
+      .run()
+  })
+
+  it('Handles payment deep link from vlra.app short link', async () => {
+    const shortLink = 'https://vlra.app/abcd'
+    const params = new URLSearchParams(paymentData)
+    const deepLink = `celo://wallet/pay?${params.toString()}`
+    await expectSaga(handleDeepLink, openDeepLink(shortLink))
+      .provide([[call([dynamicLinks(), 'resolveLink'], shortLink), { url: deepLink }]])
+      .call(handlePaymentDeeplink, deepLink)
       .run()
   })
 

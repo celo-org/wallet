@@ -32,7 +32,9 @@ import {
   getRequirePinOnAppOpen,
   walletConnectEnabledSelector,
 } from 'src/app/selectors'
+import { WEB_LINK } from 'src/brandingConfig'
 import { handleDappkitDeepLink } from 'src/dappkit/dappkit'
+import { DEEPLINK_QUERY_PARAM } from 'src/firebase/dynamicLinks'
 import { appRemoteFeatureFlagChannel, appVersionDeprecationChannel } from 'src/firebase/firebase'
 import { receiveAttestationMessage } from 'src/identity/actions'
 import { CodeInputType } from 'src/identity/verification'
@@ -144,16 +146,31 @@ function convertQueryToScreenParams(query: string) {
   return params
 }
 
+// Removes one level of abstraction from deeplinks beginning with 'https://valoraapp.com'
+function* parseShortLink(deepLink: string) {
+  let link = deepLink
+  if (deepLink.startsWith(WEB_LINK)) {
+    const deepLinkParams = parse(deepLink)
+    if (!deepLinkParams.query) {
+      return link
+    }
+    const decodedParams = new URLSearchParamsReal(decodeURIComponent(deepLinkParams.query))
+    link = decodedParams.get(DEEPLINK_QUERY_PARAM)
+  }
+  return link
+}
+
 export function* handleDeepLink(action: OpenDeepLink) {
   const { deepLink, isSecureOrigin } = action
   const walletConnectEnabled: boolean = yield select(walletConnectEnabledSelector)
   Logger.debug(TAG, 'Handling deep link', deepLink)
-  const rawParams = parse(deepLink)
+  const link = yield call(parseShortLink, deepLink)
+  const rawParams = parse(link)
   if (rawParams.path) {
     if (rawParams.path.startsWith('/v/')) {
       yield put(receiveAttestationMessage(rawParams.path.substr(3), CodeInputType.DEEP_LINK))
     } else if (rawParams.path.startsWith('/pay')) {
-      yield call(handlePaymentDeeplink, deepLink)
+      yield call(handlePaymentDeeplink, link)
     } else if (rawParams.path.startsWith('/dappkit')) {
       handleDappkitDeepLink(deepLink)
     } else if (rawParams.path.startsWith('/wc') && walletConnectEnabled) {

@@ -1,14 +1,15 @@
 import dynamicLinks from '@react-native-firebase/dynamic-links'
-import { generateShortInviteLink } from 'src/firebase/dynamicLinks'
+import { generateShortLink } from 'src/firebase/dynamicLinks'
 
-describe(generateShortInviteLink, () => {
+describe(generateShortLink, () => {
   const buildShortLink = dynamicLinks().buildShortLink as jest.Mock
   it('succeeds', async () => {
     buildShortLink.mockResolvedValueOnce('shortLink')
-    const result = await generateShortInviteLink({
+    const result = await generateShortLink({
       link: `https://celo.org/build/wallet`,
       appStoreId: '123456789',
       bundleId: 'org.celo.mobile.integration',
+      shortLinkType: 'UNGUESSABLE',
     })
     expect(result).toEqual('shortLink')
   })
@@ -16,10 +17,11 @@ describe(generateShortInviteLink, () => {
   it('fails and falls back to link', async () => {
     buildShortLink.mockRejectedValueOnce('test')
     const link = `https://celo.org/build/wallet`
-    const result = await generateShortInviteLink({
+    const result = await generateShortLink({
       link,
       appStoreId: '123456789',
       bundleId: 'org.celo.mobile.integration',
+      shortLinkType: 'UNGUESSABLE',
     })
     expect(result).toEqual(link)
   })
