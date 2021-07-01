@@ -361,6 +361,7 @@ export class NotificationBox extends React.Component<Props, State> {
     return (
       <View style={styles.body}>
         <ScrollView
+          testID="CTA/ScrollContainer"
           horizontal={true}
           pagingEnabled={true}
           showsHorizontalScrollIndicator={false}

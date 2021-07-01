@@ -44,7 +44,7 @@ const initialState = {
   lastTimeBackgrounded: 0,
   sessionId: '',
   minVersion: null,
-  shortVerificationCodesEnabled: false,
+  shortVerificationCodesEnabled: true,
   celoEducationUri: null,
   inviteModalVisible: false,
   activeScreen: Screens.Main,

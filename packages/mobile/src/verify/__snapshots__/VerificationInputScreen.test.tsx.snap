@@ -179,6 +179,7 @@ exports[`VerificationInputScreen renders correctly 1`] = `
                           },
                         ]
                       }
+                      testID="VerificationCode0"
                       underlineColorAndroid="transparent"
                       value=""
                     />

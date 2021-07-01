@@ -3,3 +3,4 @@ export const SAMPLE_BACKUP_KEY =
   'general debate dial flock want basket local machine effort monitor stomach purity attend brand extend salon obscure soul open floor useful like cause exhaust'
 export const DEFAULT_PIN = '112233'
 export const EXAMPLE_NAME = 'Test Name'
+export const VERIFICATION_PHONE_NUMBER = '+1 650-374-0981'

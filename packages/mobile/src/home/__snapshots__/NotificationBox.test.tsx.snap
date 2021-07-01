@@ -14,6 +14,7 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
     onScroll={[Function]}
     pagingEnabled={true}
     showsHorizontalScrollIndicator={false}
+    testID="CTA/ScrollContainer"
   >
     <View>
       <View

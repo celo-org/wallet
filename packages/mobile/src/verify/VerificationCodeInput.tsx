@@ -27,6 +27,7 @@ interface Props {
   onInputChange: (value: string, processCodeIfValid?: boolean) => void
   style?: StyleProp<ViewStyle>
   shortVerificationCodesEnabled: boolean
+  testID?: string
 }
 
 function isAttestationAccepted(
@@ -48,6 +49,7 @@ function VerificationCodeInput({
   onInputChange,
   style,
   shortVerificationCodesEnabled,
+  testID,
 }: Props) {
   const attestationCodes = useSelector(attestationCodesSelector)
   const acceptedAttestationCodes = useSelector(acceptedAttestationCodesSelector)
@@ -142,6 +144,7 @@ function VerificationCodeInput({
       shouldShowClipboard={shouldShowClipboard(attestationCodes, shortVerificationCodesEnabled)}
       style={style}
       shortVerificationCodesEnabled={shortVerificationCodesEnabled}
+      testID={testID}
     />
   )
 }

@@ -23,7 +23,7 @@ import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { ErrorMessages } from 'src/app/ErrorMessages'
 import { hideVerificationSelector, numberVerifiedSelector } from 'src/app/selectors'
 import BackButton from 'src/components/BackButton'
-import { WEB_LINK } from 'src/config'
+import { isE2EEnv, WEB_LINK } from 'src/config'
 import networkConfig from 'src/geth/networkConfig'
 import i18n, { Namespaces } from 'src/i18n'
 import { setHasSeenVerificationNux, startVerification } from 'src/identity/actions'
@@ -209,6 +209,16 @@ function VerificationEducationScreen({ route, navigation }: Props) {
       ValoraAnalytics.track(VerificationEvents.verification_recaptcha_failure)
     }
   }
+
+  useEffect(() => {
+    if (isE2EEnv && currentState.type === VerificationStateType.EnsuringRealHumanUser) {
+      handleCaptchaResolved({
+        nativeEvent: {
+          data: 'special-captcha-bypass-token',
+        },
+      })
+    }
+  }, [currentState.type])
 
   const onPressCountry = () => {
     navigate(Screens.SelectCountry, {

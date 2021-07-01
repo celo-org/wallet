@@ -195,7 +195,7 @@
     "@typescript-eslint/eslint-plugin": "^4.25.0",
     "@valora/eslint-config-typescript": "^0.0.1",
     "babel-core": "7.0.0-bridge.0",
-    "detox": "^18.14.1",
+    "detox": "^18.18.1",
     "detox-recorder": "^1.0.151",
     "escape-string-regexp": "^1.0.5",
     "eslint": "^7.27.0",
@@ -222,7 +222,8 @@
     "redux-flipper": "^1.4.2",
     "redux-mock-store": "^1.5.3",
     "redux-saga-test-plan": "^4.0.0-beta.2",
-    "remote-redux-devtools": "^0.5.12"
+    "remote-redux-devtools": "^0.5.12",
+    "twilio": "^3.64.00"
   },
   "resolutions": {
     "react-native-fs": "git+https://github.com/celo-org/react-native-fs#aa6db0f"
