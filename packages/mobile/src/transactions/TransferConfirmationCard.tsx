@@ -82,6 +82,7 @@ function InviteSentContent({ addressHasChanged, recipient, amount }: Props) {
   const totalAmount = amount
   const inviteFee = getInvitationVerificationFeeInDollars()
   // TODO: Use real fee
+  // TODO: implement PaymentSent changes here also
   const securityFee = new BigNumber(0)
   const totalFee = inviteFee.plus(securityFee)
 
@@ -146,7 +147,7 @@ function PaymentSentContent({ addressHasChanged, recipient, amount, comment }: P
   const sentAmount = amount
   // TODO: Use real fee
   const securityFee = new BigNumber(0)
-  const totalAmount = amount
+  const totalAmount = amount // TODO: displayed total should probably include total fees
   const totalFee = securityFee
 
   const isCeloWithdrawal = amount.currencyCode === CURRENCIES[CURRENCY_ENUM.GOLD].code

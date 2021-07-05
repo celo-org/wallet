@@ -35,6 +35,7 @@ export enum FormatType {
   NetworkFee,
   NetworkFeePrecise,
   ExchangeRate,
+  FeeTopLine,
 }
 
 interface Props {
@@ -104,21 +105,26 @@ type FormatFunction = (amount: BigNumber.Value, currency?: CURRENCY_ENUM) => str
 function getFormatFunction(formatType: FormatType): FormatFunction {
   switch (formatType) {
     case FormatType.Default:
-      return getMoneyDisplayValue
+      return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) =>
+        getMoneyDisplayValue(amount, _currency)
     case FormatType.CentAware:
       return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) =>
         getCentAwareMoneyDisplay(amount)
     case FormatType.Fee:
-      return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) => getFeeDisplayValue(amount)
+      return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) =>
+        getFeeDisplayValue(amount, false, _currency === CURRENCY_ENUM.GOLD)
     case FormatType.NetworkFee:
       return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) =>
         getNetworkFeeDisplayValue(amount)
-    case FormatType.NetworkFeePrecise:
+    case FormatType.NetworkFeePrecise: // this seems to never be used, could consider removing
       return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) =>
         getNetworkFeeDisplayValue(amount, true)
     case FormatType.ExchangeRate:
       return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) =>
         getExchangeRateDisplayValue(amount)
+    case FormatType.FeeTopLine:
+      return (amount: BigNumber.Value, _currency?: CURRENCY_ENUM) =>
+        getFeeDisplayValue(amount, true, _currency === CURRENCY_ENUM.GOLD)
   }
 }
 

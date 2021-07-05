@@ -60,6 +60,7 @@ import { getConfirmationInput } from 'src/send/utils'
 import DisconnectBanner from 'src/shared/DisconnectBanner'
 import { fetchDollarBalance } from 'src/stableToken/actions'
 import { stableTokenBalanceSelector } from 'src/stableToken/reducer'
+import { getFeeDisplayValue } from 'src/utils/formatting'
 import Logger from 'src/utils/Logger'
 import { currentAccountSelector, isDekRegisteredSelector } from 'src/web3/selectors'
 
@@ -243,10 +244,12 @@ function SendConfirmation(props: Props) {
       setFeeInfo(asyncFee.result)
     }
 
+    // the fee disaplyed at topline is forced rounded up to 2 decimal places, and the total amount should also reflect that
+    const displayFee = getFeeDisplayValue(fee, true, false)
     // TODO(victor): If CELO is used to pay fees, it cannot be added to the cUSD ammount. We should
     // fix this at some point, but because only cUSD is used for fees right now, it is not an issue.
     const amountWithFee =
-      asyncFee.result?.currency === CURRENCY_ENUM.DOLLAR ? amount.plus(fee ?? 0) : amount
+      asyncFee.result?.currency === CURRENCY_ENUM.DOLLAR ? amount.plus(displayFee ?? 0) : amount
     const userHasEnough =
       !asyncFee.loading &&
       amountWithFee.isLessThanOrEqualTo(dollarBalance) &&
@@ -292,6 +295,8 @@ function SendConfirmation(props: Props) {
         // send payment so we adjust it here
         securityFee = fee.dividedBy(2)
         dekFee = fee.dividedBy(2)
+      } else {
+        securityFee = fee
       }
 
       if (feeInfoUpdated) {

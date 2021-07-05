@@ -10,7 +10,8 @@ export const getMoneyDisplayValue = (
   includeSymbol: boolean = false,
   roundingTolerance: number = 1
 ): string => {
-  const decimals = CURRENCIES[currency].displayDecimals
+  // TODO: use new CURRENCIES enum when cEUR work is merged
+  const decimals = currency === CURRENCY_ENUM.GOLD ? 4 : CURRENCIES[currency].displayDecimals
   const symbol = CURRENCIES[currency].symbol
   const formattedValue = roundDown(value, decimals, roundingTolerance).toFormat(decimals)
   return includeSymbol ? symbol + formattedValue : formattedValue
@@ -37,13 +38,25 @@ export const getExchangeRateDisplayValue = (value: BigNumber.Value): string => {
   return new BigNumber(value).decimalPlaces(4).toFormat()
 }
 
-export const getFeeDisplayValue = (value: BigNumber.Value | null | undefined): string => {
-  return value
-    ? // Show 0.001 if fee > 0 and <= 0.001
-      BigNumber.max(value, new BigNumber(value).isZero() ? 0 : 0.001)
-        .decimalPlaces(4)
-        .toFormat()
-    : ''
+/**
+ * Rounds up to upper-bound fees for display
+ * Fails quietly (displays minimum value) on nonnegative inputs
+ * @param value fee amount, assumed nonnegative
+ * @param topLine true if display should be to two decimal places
+ */
+export const getFeeDisplayValue = (
+  value: BigNumber.Value | null | undefined,
+  topLine: boolean = true,
+  isCELO: boolean
+): string => {
+  if (!value || new BigNumber(value).isZero()) {
+    return '-'
+  }
+  const decimals = isCELO ? 4 : topLine ? 2 : 3
+  const minDisplay = Math.pow(10, 0 - decimals)
+  return value <= minDisplay
+    ? new BigNumber(minDisplay).toFormat(decimals)
+    : roundUp(value, decimals).toFormat(decimals)
 }
 
 /**

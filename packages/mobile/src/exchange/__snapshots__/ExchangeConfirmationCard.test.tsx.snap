@@ -66,7 +66,7 @@ exports[`renders correctly with giant numbers 1`] = `
             >
               
               
-              18,000,000,000.000
+              18,000,000,000.0000
             </Text>
           </View>
           <View
@@ -163,148 +163,62 @@ exports[`renders correctly with giant numbers 1`] = `
               </Text>
             </Text>
           </View>
-          <View>
-            <View
-              accessible={true}
-              focusable={true}
-              nativeBackgroundAndroid={
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
                 Object {
-                  "attribute": "selectableItemBackground",
-                  "rippleRadius": undefined,
-                  "type": "ThemeAttrAndroid",
+                  "color": "#2E3338",
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 22,
                 }
               }
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              testID="feeDrawer/ExchangeConfirmationCard"
+            >
+              feeActual
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "marginVertical": 5,
+                  },
+                  undefined,
+                ]
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "center",
                     "flexDirection": "row",
-                    "justifyContent": "space-between",
+                    "marginRight": 5,
                   }
                 }
               >
-                <View
+                <Text
                   style={
                     Array [
-                      Object {
-                        "alignItems": "center",
-                        "flexDirection": "row",
-                      },
-                      undefined,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
                       Object {
                         "color": "#2E3338",
                         "fontFamily": "Inter-Regular",
                         "fontSize": 16,
                         "lineHeight": 22,
-                      }
-                    }
-                  >
-                    feeActual
-                  </Text>
-                  <View
-                    style={
-                      Object {
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      }
-                    }
-                  >
-                    <svg
-                      fill="none"
-                      height={16}
-                      viewBox="0 0 16 16"
-                      width={16}
-                    >
-                      <path
-                        d="M3 6l5 5 5-5"
-                        stroke="#B4B9BD"
-                      />
-                    </svg>
-                  </View>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "flexDirection": "row",
-                        "justifyContent": "space-between",
-                        "marginVertical": 5,
                       },
                       undefined,
                     ]
                   }
                 >
-                  <View
-                    style={
-                      Object {
-                        "alignItems": "center",
-                        "flexDirection": "row",
-                        "marginRight": 5,
-                      }
-                    }
-                  >
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#2E3338",
-                            "fontFamily": "Inter-Regular",
-                            "fontSize": 16,
-                            "lineHeight": 22,
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      
-                    </Text>
-                  </View>
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#2E3338",
-                          "fontFamily": "Inter-Regular",
-                          "fontSize": 16,
-                          "lineHeight": 22,
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        Array [
-                          undefined,
-                          Object {
-                            "color": "#2E3338",
-                          },
-                        ]
-                      }
-                    >
-                      
-                      $
-                      0
-                    </Text>
-                  </Text>
-                </View>
+                  -
+                </Text>
               </View>
             </View>
           </View>
@@ -564,7 +478,7 @@ exports[`renders correctly with no exchange rate 1`] = `
             >
               
               
-              20.000
+              20.0000
             </Text>
           </View>
           <View
@@ -661,148 +575,62 @@ exports[`renders correctly with no exchange rate 1`] = `
               </Text>
             </Text>
           </View>
-          <View>
-            <View
-              accessible={true}
-              focusable={true}
-              nativeBackgroundAndroid={
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <Text
+              style={
                 Object {
-                  "attribute": "selectableItemBackground",
-                  "rippleRadius": undefined,
-                  "type": "ThemeAttrAndroid",
+                  "color": "#2E3338",
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 22,
                 }
               }
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              testID="feeDrawer/ExchangeConfirmationCard"
+            >
+              feeActual
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                    "marginVertical": 5,
+                  },
+                  undefined,
+                ]
+              }
             >
               <View
                 style={
                   Object {
+                    "alignItems": "center",
                     "flexDirection": "row",
-                    "justifyContent": "space-between",
+                    "marginRight": 5,
                   }
                 }
               >
-                <View
+                <Text
                   style={
                     Array [
-                      Object {
-                        "alignItems": "center",
-                        "flexDirection": "row",
-                      },
-                      undefined,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
                       Object {
                         "color": "#2E3338",
                         "fontFamily": "Inter-Regular",
                         "fontSize": 16,
                         "lineHeight": 22,
-                      }
-                    }
-                  >
-                    feeActual
-                  </Text>
-                  <View
-                    style={
-                      Object {
-                        "transform": Array [
-                          Object {
-                            "rotate": "0deg",
-                          },
-                        ],
-                      }
-                    }
-                  >
-                    <svg
-                      fill="none"
-                      height={16}
-                      viewBox="0 0 16 16"
-                      width={16}
-                    >
-                      <path
-                        d="M3 6l5 5 5-5"
-                        stroke="#B4B9BD"
-                      />
-                    </svg>
-                  </View>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "flexDirection": "row",
-                        "justifyContent": "space-between",
-                        "marginVertical": 5,
                       },
                       undefined,
                     ]
                   }
                 >
-                  <View
-                    style={
-                      Object {
-                        "alignItems": "center",
-                        "flexDirection": "row",
-                        "marginRight": 5,
-                      }
-                    }
-                  >
-                    <Text
-                      style={
-                        Array [
-                          Object {
-                            "color": "#2E3338",
-                            "fontFamily": "Inter-Regular",
-                            "fontSize": 16,
-                            "lineHeight": 22,
-                          },
-                          undefined,
-                        ]
-                      }
-                    >
-                      
-                    </Text>
-                  </View>
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#2E3338",
-                          "fontFamily": "Inter-Regular",
-                          "fontSize": 16,
-                          "lineHeight": 22,
-                        },
-                        undefined,
-                      ]
-                    }
-                  >
-                    <Text
-                      numberOfLines={1}
-                      style={
-                        Array [
-                          undefined,
-                          Object {
-                            "color": "#2E3338",
-                          },
-                        ]
-                      }
-                    >
-                      
-                      $
-                      0
-                    </Text>
-                  </Text>
-                </View>
+                  -
+                </Text>
               </View>
             </View>
           </View>

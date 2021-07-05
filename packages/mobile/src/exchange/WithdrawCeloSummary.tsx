@@ -11,6 +11,7 @@ import LineItemRow from 'src/components/LineItemRow'
 import TotalLineItem from 'src/components/TotalLineItem'
 import { CURRENCIES, CURRENCY_ENUM } from 'src/geth/consts'
 import { Namespaces } from 'src/i18n'
+import { getFeeDisplayValue } from 'src/utils/formatting'
 
 interface WithdrawCeloProps {
   style?: ViewStyle
@@ -26,6 +27,8 @@ export default function WithdrawCeloSummary({
   feeEstimate,
 }: WithdrawCeloProps) {
   const { t } = useTranslation(Namespaces.exchangeFlow9)
+
+  const totalAmount = amount.plus(getFeeDisplayValue(feeEstimate, true, false))
 
   return (
     <View style={style}>
@@ -51,7 +54,7 @@ export default function WithdrawCeloSummary({
       />
       <TotalLineItem
         amount={{
-          value: amount,
+          value: totalAmount,
           currencyCode: CURRENCIES[CURRENCY_ENUM.GOLD].code,
         }}
       />

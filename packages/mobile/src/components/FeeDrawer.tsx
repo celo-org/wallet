@@ -50,9 +50,14 @@ export default function FeeDrawer({
   const { t } = useTranslation(Namespaces.sendFlow7)
   const [expanded, setExpanded] = useState(false)
 
+  const hasNonZeroFees = totalFee && !totalFee.isZero()
   const toggleExpanded = () => {
     LayoutAnimation.easeInEaseOut()
     setExpanded(!expanded)
+    console.log(expanded)
+    console.log(securityFee)
+    console.log(securityAmount)
+    console.log(currency)
   }
 
   const title = isEstimate ? t('feeEstimate') : t('feeActual')
@@ -87,7 +92,7 @@ export default function FeeDrawer({
       currencyCode: CURRENCIES[currency].code,
     }
 
-  return (
+  return hasNonZeroFees ? (
     // Uses View instead of Fragment to workaround a glitch with LayoutAnimation
     <View>
       <Touchable onPress={toggleExpanded} testID={testID}>
@@ -101,7 +106,7 @@ export default function FeeDrawer({
               totalFeeAmount && (
                 <CurrencyDisplay
                   amount={totalFeeAmount}
-                  formatType={FormatType.Fee}
+                  formatType={FormatType.FeeTopLine}
                   currencyInfo={currencyInfo}
                 />
               )
@@ -150,7 +155,6 @@ export default function FeeDrawer({
               textStyle={styles.dropDownText}
             />
           )}
-
           <LineItemRow
             title={t('securityFee')}
             titleIcon={<SecurityFeeIcon />}
@@ -169,6 +173,11 @@ export default function FeeDrawer({
           />
         </View>
       )}
+    </View>
+  ) : (
+    <View style={styles.totalContainer}>
+      <Text style={styles.title}>{title}</Text>
+      <LineItemRow title={'-'} isLoading={feeLoading} hasError={feeHasError} />
     </View>
   )
 }

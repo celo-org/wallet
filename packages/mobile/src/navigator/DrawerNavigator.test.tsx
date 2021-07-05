@@ -32,7 +32,7 @@ describe('DrawerNavigator', () => {
     expect(getElementText(tree.getByTestId('DollarBalance'))).toEqual('10.00 global:celoDollars')
 
     expect(getElementText(tree.getByTestId('LocalCeloBalance'))).toEqual('$26.60')
-    expect(getElementText(tree.getByTestId('CeloBalance'))).toEqual('2.000 global:celoGold')
+    expect(getElementText(tree.getByTestId('CeloBalance'))).toEqual('2.0000 global:celoGold')
   })
 
   it('renders only with the cUSD balance when the CELO balance is (almost) 0', () => {

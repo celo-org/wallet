@@ -61,7 +61,7 @@ describe('ReclaimPaymentConfirmationScreen', () => {
     mockedGetReclaimEscrowFee.mockClear()
   })
 
-  it('renders correctly with fee in Celo dollars', async () => {
+  it('renders correctly with fee in cUSD', async () => {
     mockedGetReclaimEscrowFee.mockImplementation(async () => TEST_FEE_INFO_CUSD)
 
     const { getByText, queryByText, queryAllByText, toJSON } = render(
@@ -75,15 +75,16 @@ describe('ReclaimPaymentConfirmationScreen', () => {
     expect(queryAllByText('securityFee')).toHaveLength(2)
     expect(queryByText(/-\s*\$\s*0\.0133/s)).toBeNull()
 
-    // Wait for fee to be calculated and displayed as "$0.013"
+    // Wait for fee to be calculated and displayed as "$0.014"
+    // TODO (anton): Fee should display to 2 decs, not 3 (change default display in monorepo)
     // NOTE: Use regex here because the text may be split by a newline.
-    await waitForElement(() => getByText(/-\s*\$\s*0\.0133/s))
+    await waitForElement(() => getByText(/-\s*\$\s*0\.014/s))
     expect(toJSON()).toMatchSnapshot()
     // Query for the total amount, which should deduct the fee.
     expect(queryByText(/\$\s*13\.28/s)).not.toBeNull()
   })
 
-  it('renders correctly in with fee in CELO', async () => {
+  it('renders correctly with fee in CELO', async () => {
     mockedGetReclaimEscrowFee.mockImplementation(async () => TEST_FEE_INFO_CELO)
 
     const { getByText, queryByText, queryAllByText, toJSON } = render(

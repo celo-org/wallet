@@ -48,7 +48,7 @@ exports[`renders correctly when not ready 1`] = `
     >
       
       
-      55.000
+      55.0000
     </Text>
   </Text>
   <Text
@@ -128,7 +128,7 @@ exports[`renders correctly when ready 1`] = `
     >
       
       
-      55.000
+      55.0000
     </Text>
   </Text>
   <Text

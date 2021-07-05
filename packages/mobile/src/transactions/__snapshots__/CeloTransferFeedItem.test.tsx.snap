@@ -77,7 +77,7 @@ exports[`CeloTransferFeedItem renders correctly 1`] = `
         >
           -
           
-          1.005
+          1.0050
         </Text>
       </View>
     </View>
@@ -178,7 +178,7 @@ exports[`CeloTransferFeedItem renders correctly when there's a known address 1`]
         >
           +
           
-          1.005
+          1.0050
         </Text>
       </View>
     </View>

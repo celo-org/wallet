@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js'
 import * as React from 'react'
 import { fireEvent, render, waitForElement } from 'react-native-testing-library'
 import { Provider } from 'react-redux'
+import sleep from 'sleep-promise'
 import { ErrorDisplayType } from 'src/alert/reducer'
 import { SendOrigin } from 'src/analytics/types'
 import { ErrorMessages } from 'src/app/ErrorMessages'
@@ -12,7 +13,7 @@ import { navigate } from 'src/navigator/NavigationService'
 import { Screens } from 'src/navigator/Screens'
 import { getSendFee } from 'src/send/saga'
 import SendConfirmation from 'src/send/SendConfirmation'
-import { createMockStore, getMockStackScreenProps, sleep } from 'test/utils'
+import { createMockStore, getMockStackScreenProps } from 'test/utils'
 import {
   mockAccount2Invite,
   mockAccountInvite,
@@ -83,20 +84,18 @@ describe('SendConfirmation', () => {
     )
 
     // Initial render.
+    // Await to force fees to render prior to checking snapshot and attempting press
+    await waitForElement(() => fireEvent.press(tree.getByText('feeEstimate')))
+    // TODO (anton): line 744 of the snapshot 'rotate: ...' sometimes differs for unknown reasons
     expect(tree).toMatchSnapshot()
-    fireEvent.press(tree.getByText('feeEstimate'))
 
-    // Run timers, because Touchable adds some delay.
-    jest.runAllTimers()
-    // Prevents an unexplained error: TypeError: require(...) is not a function
-    await sleep(1000)
-
-    // Wait for fee to be calculated and displayed as "$0.013".
+    // Wait for fee to be calculated and displayed as "$0.02".
     // NOTE: Use regex here because the text may be split by a newline.
-    await waitForElement(() => tree.getByText(/\$\s*0\.0133/s))
-    expect(tree).toMatchSnapshot()
+    await waitForElement(() => tree.getByText(/\$\s*0\.02/s))
     // Query for the total amount, which should include the fee.
     expect(tree.queryByText(/\$\s*1\.34/s)).not.toBeNull()
+    // Prevents an unexplained error: TypeError: require(...) is not a function
+    return sleep(1000)
   })
 
   // TODO: Use the logic above for CELO fees
@@ -116,20 +115,17 @@ describe('SendConfirmation', () => {
     )
 
     // Initial render.
+    // Await to force fees to render prior to checking snapshot and attempting press
+    await waitForElement(() => fireEvent.press(tree.getByText('feeEstimate')))
     expect(tree).toMatchSnapshot()
-    fireEvent.press(tree.getByText('feeEstimate'))
 
-    // Run timers, because Touchable adds some delay.
-    jest.runAllTimers()
-    // Prevents an unexplained error: TypeError: require(...) is not a function
-    await sleep(1000)
-
-    // Wait for fee to be calculated and displayed as "0.01".
-    await waitForElement(() => tree.getByText(/0\.01/s))
-    expect(tree).toMatchSnapshot()
+    // Wait for fee to be calculated and displayed as "0.0100".
+    await waitForElement(() => tree.getByText(/0\.0100/s))
     // Query for the total amount, which should include the fee.
     // NOTE: CELO fees are currently no combined into the total.
     // expect(tree.queryByText(/\$\s*1\.34/s)).not.toBeNull()
+    // Prevents an unexplained error: TypeError: require(...) is not a function
+    return sleep(1000)
   })
 
   it('shows a generic `calculateFeeFailed` error when fee estimate fails due to an unknown error', async () => {

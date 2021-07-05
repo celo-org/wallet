@@ -606,7 +606,7 @@ exports[`ReclaimPaymentConfirmationCard renders correctly for send payment confi
       >
         -
         $
-        0.0133
+        0.014
       </Text>
     </Text>
   </View>

@@ -14,7 +14,7 @@ describe('utils->formatting', () => {
   describe('getMoneyDisplayValue', () => {
     const UNROUNDED_NUMBER = 5.239835
     const ROUNDED_NUMBER_2_DECIMALS = '5.24'
-    const ROUNDED_NUMBER_3_DECIMALS = '5.239'
+    const ROUNDED_NUMBER_4_DECIMALS = '5.2398'
 
     it('formats correctly for default case', () => {
       expect(getMoneyDisplayValue(UNROUNDED_NUMBER)).toBe(ROUNDED_NUMBER_2_DECIMALS)
@@ -28,7 +28,7 @@ describe('utils->formatting', () => {
 
     it('formats correctly for dollars', () => {
       expect(getMoneyDisplayValue(UNROUNDED_NUMBER, CURRENCY_ENUM.GOLD)).toBe(
-        ROUNDED_NUMBER_3_DECIMALS
+        ROUNDED_NUMBER_4_DECIMALS
       )
     })
 
@@ -40,7 +40,7 @@ describe('utils->formatting', () => {
 
     it('includes gold symbol (which is nothing)', () => {
       expect(getMoneyDisplayValue(UNROUNDED_NUMBER, CURRENCY_ENUM.GOLD, true)).toBe(
-        ROUNDED_NUMBER_3_DECIMALS
+        ROUNDED_NUMBER_4_DECIMALS
       )
     })
   })

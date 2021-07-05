@@ -395,7 +395,7 @@ exports[`ExchangeHomeScreen renders and behaves correctly for CP-DOTO restricted
           >
             
             
-            2.000
+            2.0000
           </Text>
         </Text>
         <Text
@@ -938,7 +938,7 @@ exports[`ExchangeHomeScreen renders and behaves correctly for non CP-DOTO restri
           >
             
             
-            2.000
+            2.0000
           </Text>
         </Text>
         <Text

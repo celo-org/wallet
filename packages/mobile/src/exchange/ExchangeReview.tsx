@@ -27,6 +27,7 @@ import { RootState } from 'src/redux/reducers'
 import { isAppConnected } from 'src/redux/selectors'
 import DisconnectBanner from 'src/shared/DisconnectBanner'
 import { getRateForMakerToken, getTakerAmount } from 'src/utils/currencyExchange'
+import { getFeeDisplayValue } from 'src/utils/formatting'
 
 interface StateProps {
   exchangeRatePair: ExchangeRatePair | null
@@ -184,8 +185,9 @@ export class ExchangeReview extends React.Component<Props, State> {
     }
     const totalFee = new BigNumber(tobinTax).plus(fee)
 
+    const displayTotalFee = getFeeDisplayValue(totalFee, true, false)
     const totalAmount = {
-      value: dollarAmount.plus(totalFee),
+      value: dollarAmount.plus(displayTotalFee),
       currencyCode: CURRENCIES[CURRENCY_ENUM.DOLLAR].code,
     }
 

@@ -148,6 +148,7 @@ describe('TransferConfirmationCard', () => {
         <TransferConfirmationCard {...props} />
       </Provider>
     )
+    // n.b. TransferConfirmationCard uses hardcoded 0 fee, so this test does not check fee display
     expect(tree).toMatchSnapshot()
   })
 
@@ -167,6 +168,7 @@ describe('TransferConfirmationCard', () => {
         <TransferConfirmationCard {...props} />
       </Provider>
     )
+    // n.b. TransferConfirmationCard uses hardcoded 0 fee, so this test does not check fee display
     expect(tree).toMatchSnapshot()
   })
 
@@ -188,6 +190,7 @@ describe('TransferConfirmationCard', () => {
         <TransferConfirmationCard {...props} />
       </Provider>
     )
+    // n.b. TransferConfirmationCard uses hardcoded 0 fee, so this test does not check fee display
     expect(tree).toMatchSnapshot()
   })
 })
