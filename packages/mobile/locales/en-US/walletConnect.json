@@ -2,7 +2,6 @@
   "connectToWallet": "{{dappName}} would like to connect to {{appName}}",
   "cancel": "Cancel",
   "allow": "Allow",
-
   "action": {
     "asking": "This application is asking to perform the following action",
     "operation": "Operation",
@@ -15,7 +14,6 @@
     "details": "Show details",
     "computeSharedSecret": "Generate Secrets"
   },
-
   "sessionInfo": "This application may ask to perform the following actions:",
   "description": {
     "sign": "Sign Payloads",
@@ -27,10 +25,8 @@
   },
   "tapToDisconnect": "Tap to Disconnect",
   "moreInfo": "Confused by anything here?",
-
   "sessionsTitle": "Connected Apps",
   "sessionsSubTitle": "The following apps are connected to {{appName}}. You can connect to more apps by scanning their QR code.",
-
   "disconnect": "Disconnect",
   "disconnectTitle": "Disconnect {{dappName}}?",
   "disconnectBody": "Are you sure you want to disconnect from {{dappName}}?"

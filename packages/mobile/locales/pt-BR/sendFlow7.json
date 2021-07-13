@@ -62,7 +62,7 @@
   "writeStorageNeededForQrDownload": "É necessário a permissão de gravação no armazenamento para baixar o QR code",
   "cameraScanInfo": "Centralize o código na caixa acima",
   "cameraNotAuthorizedTitle": "Habilitar câmera",
-  "cameraNotAuthorizedDescription": "Ative a câmera nas configurações do seu celular. Você precisará dele para ler os QR codes.",
+  "cameraNotAuthorizedDescription": "Ative a câmera nas configurações do seu celular. Você precisará dele para ler os códigos QR.",
   "cameraSettings": "Configurações",
   "toSentOrRequestPayment": "para enviar ou solicitar pagamento",
   "reminderSent": "Lembrete enviado",
@@ -96,7 +96,7 @@
     "button": "Confirmar o número da conta"
   },
   "secureSendExplanation": {
-    "body1": "{{e164PhoneNumber}} tem várias contas associadas a ele. {{displayName}} pode ter criado uma nova conta na {{appName}}, pode ter perdido seu celular ou teve a conta comprometida.",
+    "body1": "{{e164PhoneNumber}} tem várias contas associadas a ele. {{displayName}} pode ter criado uma nova conta no {{appName}}, pode ter perdido seu celular ou teve a conta comprometida.",
     "body1NoDisplayName": "Seu contato possui várias contas associadas a ele. Seu contato pode ter criado uma nova conta na {{appName}}, pode ter perdido o celular ou teve a conta comprometida.",
     "body2": "Você deve escanear o QR code ou confirmar o número da conta antes de realizar a transação."
   },

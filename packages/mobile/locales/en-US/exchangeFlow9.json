@@ -35,7 +35,7 @@
   "loadingExchangeRate": "Loading Exchange Rate...",
   "errorRefreshingRate": "Could not refresh exchange rate",
   "exchangeRateChange": "Exchange rate has changed, please retry",
-  "feeExchangeEducation": "When making exchanges, a small additional fee goes towards maintaining the stable value of Celo Dollar. To learn more about Celo fees, visit the FAQ.",
+  "feeExchangeEducation": "When exchanging between CELO and cUSD, a small fee goes towards keeping the value of the Celo Dollar stable and tied to the US Dollar. \n\nVisit the FAQ to learn more.",
   "goldPrice": "CELO Price",
   "yourGoldBalance": "Your CELO Balance",
   "goldAmount": "CELO Amount",

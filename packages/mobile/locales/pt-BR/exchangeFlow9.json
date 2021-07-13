@@ -35,7 +35,7 @@
   "loadingExchangeRate": "Carregando Taxa de Câmbio...",
   "errorRefreshingRate": "Não foi possível atualizar a taxa de câmbio",
   "exchangeRateChange": "A taxa de câmbio mudou, tente novamente",
-  "feeExchangeEducation": "Ao fazer os câmbios, uma pequena taxa adicional vai para a manutenção do valor estável do Celo Dólar. Para saber mais sobre as taxas do Celo, acesse as Perguntas frequentes.",
+  "feeExchangeEducation": "Ao fazer exchanges, uma pequena taxa adicional vai para a manutenção do valor estável do Celo Dólar. Para saber mais sobre as taxas do Celo, acesse as Perguntas frequentes.",
   "goldPrice": "Preço do CELO",
   "yourGoldBalance": "Seu saldo em CELO",
   "goldAmount": "Quantia de CELO",

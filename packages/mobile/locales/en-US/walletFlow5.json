@@ -1,7 +1,7 @@
 {
   "getStarted": "Get Started",
   "incomingPaymentRequests": "Requests from Others",
-  "incomingPaymentRequestsSummaryTitle": "{{count}} Pending Requests",
+  "incomingPaymentRequestsSummaryTitle": "{{count}} incomplete requests",
   "incomingPaymentRequestsSummaryDetails_exactly2Items": "<0></0> and <1></1> are waiting for you",
   "incomingPaymentRequestsSummaryDetails_exactly3Items": "<0></0>, <1></1> and one other are waiting for you",
   "incomingPaymentRequestsSummaryDetails_moreThan3Items": "<0></0>, <1></1> and others are waiting for you",

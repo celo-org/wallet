@@ -7,7 +7,7 @@
   "paymentRequestUpdateFailed": "Cannot update payment request",
   "incomingPaymentRequestNotificationTitle": "{{name}} requested",
   "outgoingPaymentRequestNotificationTitle": "Waiting for {{name}}",
-  "requestUnavailableHeader": "{{displayName}}'s account is unconfirmed",
+  "requestUnavailableHeader": "{{displayName}}'s account is not connected yet.",
   "requestUnavailableNoDisplayNameHeader": "Your contact's account is unconfirmed",
   "requestUnavailableBody": "The number {{e164PhoneNumber}} doesn't have an account or hasn't confirmed it yet. Requests can only be sent to confirmed numbers.",
   "requestUnavailableNoNumberBody": "Your contact doesn't have an account or hasn't confirmed it yet. Requests can only be sent to confirmed numbers.",

@@ -14,7 +14,7 @@
   "writeDownKey": "Please write down your key",
   "completeEducation": "I Understand",
   "yourAccountKey": "Your Account Key",
-  "backupKeyNotification": "Your Account Key is the most important part of your account",
+  "backupKeyNotification": "You could lose access to your funds without your Account Key",
   "backupKeySummary": "Find a private place and write down your Account Key. Please store it somewhere safe. Do not save it in your phone.",
   "copied": "Key copied to clipboard",
   "moreInfo": "More Info",

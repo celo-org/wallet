@@ -7,7 +7,7 @@
   "paymentRequestUpdateFailed": "Não é possível atualizar a solicitação de pagamento",
   "incomingPaymentRequestNotificationTitle": "{{name}} solicitou",
   "outgoingPaymentRequestNotificationTitle": "Esperando por {{name}} ",
-  "requestUnavailableHeader": "A conta de {{displayName}} não foi confirmada",
+  "requestUnavailableHeader": "A conta de {{displayName}} não foi confirmado",
   "requestUnavailableNoDisplayNameHeader": "A conta do seu contato não foi confirmada",
   "requestUnavailableBody": "O número {{e164PhoneNumber}} não tem uma conta ou ainda não foi confirmado. As solicitações só podem ser enviadas para números confirmados.",
   "requestUnavailableNoNumberBody": "Seu contato não tem uma conta ou ainda não a confirmou. As solicitações só podem ser enviadas para números confirmados.",
