@@ -1,10 +1,11 @@
 import { enterPinUiIfNecessary, pixelDiff, waitForElementId, getDeviceModel } from '../utils/utils'
 import { SAMPLE_BACKUP_KEY } from '../utils/consts'
 import { dismissBanners } from '../utils/banners'
+import { reloadReactNative } from '../utils/retries'
 
 export default ResetAccount = () => {
   beforeEach(async () => {
-    await device.reloadReactNative()
+    await reloadReactNative()
     await dismissBanners()
   })
 

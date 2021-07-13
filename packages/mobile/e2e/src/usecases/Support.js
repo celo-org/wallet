@@ -1,9 +1,10 @@
 import { dismissBanners } from '../utils/banners'
 import { pixelDiff, scrollIntoView, getDeviceModel } from '../utils/utils'
+import { reloadReactNative } from '../utils/retries'
 
 export default Support = () => {
   beforeEach(async () => {
-    await device.reloadReactNative()
+    await reloadReactNative()
     await dismissBanners()
   })
 

@@ -1,3 +1,5 @@
+import { launchApp } from '../utils/retries'
+
 export default HandleNotification = () => {
   it('Launch app from push notification', async () => {
     const userNotification = {
@@ -16,6 +18,6 @@ export default HandleNotification = () => {
       'action-identifier': 'default',
     }
 
-    await device.launchApp({ newInstance: true, userNotification })
+    await launchApp({ newInstance: true, userNotification })
   })
 }

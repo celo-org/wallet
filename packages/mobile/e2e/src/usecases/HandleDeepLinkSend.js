@@ -1,5 +1,6 @@
 import { quote, sleep } from '../utils/utils'
 import { dismissBanners } from '../utils/banners'
+import { reloadReactNative, launchApp } from '../utils/retries'
 
 export default HandleDeepLinkSend = () => {
   const PAY_URL = quote(
@@ -9,7 +10,7 @@ export default HandleDeepLinkSend = () => {
   it('Launch app cold with url', async () => {
     await device.terminateApp()
     await sleep(5000)
-    await device.launchApp({ url: PAY_URL, newInstance: true })
+    await launchApp({ url: PAY_URL, newInstance: true })
     await sleep(5000)
     await dismissBanners()
     // Arrived at SendAmount screen
@@ -22,13 +23,13 @@ export default HandleDeepLinkSend = () => {
     // 2. back button
     // there is a slight but important difference because with the back button
     // the activity gets destroyed and listeners go away which can cause subtle bugs
-    await device.reloadReactNative()
+    await reloadReactNative()
     if (device.getPlatform() === 'android') {
       await device.pressBack()
     } else {
       await device.sendToHome()
     }
-    await device.launchApp({ url: PAY_URL, newInstance: false })
+    await launchApp({ url: PAY_URL, newInstance: false })
     await expect(element(by.id('Review'))).toBeVisible()
   })
 
@@ -41,7 +42,7 @@ export default HandleDeepLinkSend = () => {
   // skip until we can have a firebase build on ci
   it.skip('Send url while app is in background, process running', async () => {
     await device.sendToHome()
-    await device.launchApp({ url: PAY_URL, newInstance: false })
+    await launchApp({ url: PAY_URL, newInstance: false })
     await expect(element(by.id('Review'))).toBeVisible()
   })
 }

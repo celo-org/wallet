@@ -1,10 +1,11 @@
 import { dismissBanners } from '../utils/banners'
 import { pixelDiff, sleep, enterPinUiIfNecessary, getDeviceModel } from '../utils/utils'
 import { DEFAULT_RECIPIENT_ADDRESS } from '../utils/consts'
+import { reloadReactNative } from '../utils/retries'
 
 export default offRamps = () => {
   beforeEach(async () => {
-    await device.reloadReactNative()
+    await reloadReactNative()
     await dismissBanners()
     await element(by.id('Hamburger')).tap()
     await element(by.id('add-and-withdraw')).tap()

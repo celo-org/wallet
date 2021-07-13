@@ -1,9 +1,10 @@
 import { dismissBanners } from '../utils/banners'
 import { pixelDiff, getDeviceModel } from '../utils/utils'
+import { reloadReactNative } from '../utils/retries'
 
 export default onRamps = () => {
   beforeEach(async () => {
-    await device.reloadReactNative()
+    await reloadReactNative()
     await dismissBanners()
     await element(by.id('Hamburger')).tap()
     await element(by.id('add-and-withdraw')).tap()
@@ -64,7 +65,7 @@ export default onRamps = () => {
       })
     })
 
-    describe('When Cryptocurrency Exchange Selected', () => {
+    describe.skip('When Cryptocurrency Exchange Selected', () => {
       beforeEach(async () => {
         await element(by.id('withExchange')).tap()
         await element(by.text('Next')).tap()

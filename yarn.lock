@@ -11295,10 +11295,10 @@ detox@^17.13.2:
     yargs "^16.0.3"
     yargs-unparser "^2.0.0"
 
-detox@^18.18.1:
-  version "18.18.1"
-  resolved "https://registry.yarnpkg.com/detox/-/detox-18.18.1.tgz#11fdfbcf698ee79f6baaecc7f09bacc37134841b"
-  integrity sha512-H3KouvWnuPjeqV6R+f/SN5ZGSXIQMwMG/24lcynRmaq2ASSjSaJqKWRCimreIr3WKkhkaEmY9cPKtj0nAJHOmw==
+detox@^18.19.0:
+  version "18.19.0"
+  resolved "https://registry.yarnpkg.com/detox/-/detox-18.19.0.tgz#f6779b4a42a0c40b22fe8ea129321a74d2d97576"
+  integrity sha512-l/RFuLXsCbcY8x2iqapcKrlijHE35gFXiZzTKRzOyY8nODKctf6aRhYPBSX9xaSKRa3rKPTYi/ffdUIIKZIFoA==
   dependencies:
     bunyan "^1.8.12"
     bunyan-debug-stream "^1.1.0"
@@ -25970,6 +25970,11 @@ ts-node@^8, ts-node@^8.3.0, ts-node@^8.4.1:
     make-error "^1.1.1"
     source-map-support "^0.5.6"
     yn "^3.0.0"
+
+ts-retry-promise@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ts-retry-promise/-/ts-retry-promise-0.6.0.tgz#95643500d5388eed25abc90aa2e99c8b6c5a7bc9"
+  integrity sha512-8DF80uA7JPu6m8ouHxGkyBpPTIGQnsgIUgLDqcRaD7EEhVowjG72KqCX334gsa1P+AmzeTVdd/xEzVFCAuPCtg==
 
 tsc-watch@^4.2.3:
   version "4.2.3"

@@ -1,10 +1,11 @@
 import { dismissBanners } from '../utils/banners'
 import { scrollIntoView, sleep } from '../utils/utils'
+import { reloadReactNative } from '../utils/retries'
 const faker = require('faker')
 
 export default Settings = () => {
   beforeEach(async () => {
-    await device.reloadReactNative()
+    await reloadReactNative()
     await dismissBanners()
     await element(by.id('Hamburger')).tap()
     await scrollIntoView('Settings', 'SettingsScrollView')

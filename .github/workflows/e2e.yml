@@ -1,5 +1,4 @@
-name: End-to-end Tests
-
+name: Run E2E
 on:
   push:
     branches:
@@ -18,7 +17,7 @@ on:
 
 jobs:
   ios:
-    name: iOS
+    name: iOS Tests
     runs-on: ios-e2e-group
     steps:
       - uses: actions/checkout@v2
@@ -44,19 +43,67 @@ jobs:
           yarn run detox build-framework-cache
           yarn run test:e2e:ios -w 2
       # Publish Test Results
-      - name: Publish JUnit Report
+      - name: Publish iOS JUnit Report
         if: always()
         uses: mikepenz/action-junit-report@v2
         with:
+          check_name: iOS e2e Test Report 
           report_paths: 'packages/mobile/e2e/test-results/junit.xml'
       # Upload Artifacts
-      - name: 'Upload E2E Artifacts'
+      - name: 'Upload iOS E2E Artifacts'
         if: failure()
         uses: actions/upload-artifact@v2
         with:
+          name: ios-e2e-artifact
           path: packages/mobile/e2e/artifacts
-      - name: 'Upload E2E HTML Report'
+      - name: 'Upload iOS E2E HTML Report'
         if: always()
         uses: actions/upload-artifact@v2
         with:
+          name: ios-e2e-test-report
+          path: packages/mobile/e2e/test-results
+  android:
+    name: Android Tests
+    runs-on: android-e2e-group
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+          check-latest: true
+      - name: Copy Emulator Config
+        run: mkdir -p ~/.android/avd/Pixel_API_29_AOSP_x86_64.avd/ && cp packages/mobile/e2e/conf/avd_conf.ini ~/.android/avd/Pixel_API_29_AOSP_x86_64.avd/config.ini
+      - name: Install package dependencies
+        run: yarn
+      - name: Build mobile dependencies
+        run: yarn build --scope @celo/mobile --include-filtered-dependencies
+      - name: Run E2E tests
+        run: |
+          export ANDROID_SDK_ROOT=$HOME/android-tools
+          export ANDROID_NDK=$ANDROID_SDK_ROOT/ndk/21.0.6113669
+          export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$PATH
+          export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest:$PATH
+          export PATH=$ANDROID_SDK_ROOT/platform-tools:$PATH
+          export PATH=$ANDROID_SDK_ROOT/emulator:$PATH
+          cd packages/mobile
+          yarn run test:e2e:android -w 1
+      # Publish Test Results
+      - name: Publish Android JUnit Report
+        if: always()
+        uses: mikepenz/action-junit-report@v2
+        with:
+          check_name: Android e2e Test Report 
+          report_paths: 'packages/mobile/e2e/test-results/junit.xml'
+      # Upload Artifacts
+      - name: 'Upload Android E2E Artifacts'
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-e2e-artifact
+          path: packages/mobile/e2e/artifacts
+      - name: 'Upload Android E2E HTML Report'
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: android-e2e-test-report
           path: packages/mobile/e2e/test-results

@@ -1,12 +1,13 @@
 import { enterPinUi, waitForElementId, sleep } from '../utils/utils'
 import { SAMPLE_BACKUP_KEY, EXAMPLE_NAME } from '../utils/consts'
 import { dismissBanners } from '../utils/banners'
+import { launchApp } from '../utils/retries'
 
 export default RestoreAccountOnboarding = () => {
   beforeAll(async () => {
     await device.terminateApp()
     await sleep(5000)
-    await device.launchApp({
+    await launchApp({
       delete: true,
       permissions: { notifications: 'YES', contacts: 'YES' },
     })

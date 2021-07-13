@@ -1,4 +1,5 @@
 import { enterPinUiIfNecessary, quote, sleep } from '../utils/utils'
+import { launchApp } from '../utils/retries'
 
 export default HandleDeepLinkDappkit = () => {
   const DAPPKIT_URL = quote(
@@ -10,7 +11,8 @@ export default HandleDeepLinkDappkit = () => {
     // I think at least on android we need this sleep because the
     // OS has a timeout period in between closing and reopening an app
     await sleep(5000)
-    await device.launchApp({ url: DAPPKIT_URL, newInstance: true })
+    await launchApp({ url: DAPPKIT_URL, newInstance: true })
+    await device.setURLBlacklist(['.*blockchain-api-dot-celo-mobile-alfajores.appspot.com.*'])
     // this second sleep is to allow for navigation to reach the desired deep link handler
     await sleep(5000)
 
