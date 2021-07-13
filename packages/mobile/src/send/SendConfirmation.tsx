@@ -360,7 +360,7 @@ function SendConfirmation(props: Props) {
         <View style={styles.encryptionWarningLabelContainer}>
           <Text style={styles.encryptionWarningLabel}>{t('encryption.warningLabel')}</Text>
           <Touchable onPress={onShowEncryptionModal} borderless={true} hitSlop={iconHitslop}>
-            <InfoIcon size={12} />
+            <InfoIcon color={colors.informational} size={14} />
           </Touchable>
         </View>
       ) : null
@@ -528,8 +528,8 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   encryptionWarningLabel: {
-    ...fontStyles.small,
-    color: colors.gray4,
+    ...fontStyles.regular,
+    color: colors.informational,
     paddingRight: 8,
   },
 })
