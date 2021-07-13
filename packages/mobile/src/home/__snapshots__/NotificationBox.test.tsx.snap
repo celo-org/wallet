@@ -47,7 +47,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
               },
               Array [
                 Object {
-                  "height": 144,
+                  "flex": 1,
+                  "minHeight": 144,
                 },
                 Object {},
               ],
@@ -118,6 +119,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                 style={
                   Object {
                     "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
                   }
                 }
                 testID="undefined/CallToActions"
@@ -152,9 +155,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         },
                         Object {
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                         },
                       ]
@@ -199,7 +202,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
               },
               Array [
                 Object {
-                  "height": 144,
+                  "flex": 1,
+                  "minHeight": 144,
                 },
                 Object {},
               ],
@@ -242,6 +246,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                 style={
                   Object {
                     "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
                   }
                 }
                 testID="undefined/CallToActions"
@@ -276,9 +282,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         },
                         Object {
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                         },
                       ]
@@ -343,7 +349,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
               },
               Array [
                 Object {
-                  "height": 144,
+                  "flex": 1,
+                  "minHeight": 144,
                 },
                 Object {},
               ],
@@ -386,6 +393,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                 style={
                   Object {
                     "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
                   }
                 }
                 testID="undefined/CallToActions"
@@ -420,9 +429,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         },
                         Object {
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                         },
                       ]
@@ -461,9 +470,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         },
                         Object {
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                         },
                       ]
@@ -528,7 +537,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
               },
               Array [
                 Object {
-                  "height": 144,
+                  "flex": 1,
+                  "minHeight": 144,
                 },
                 Object {
                   "backgroundColor": "#2C3D47",
@@ -575,6 +585,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                 style={
                   Object {
                     "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
                   }
                 }
                 testID="undefined/CallToActions"
@@ -610,9 +622,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         Object {
                           "color": "#FFFFFF",
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                         },
                       ]
@@ -652,9 +664,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         Object {
                           "color": "#FFFFFF",
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                           "opacity": 0.33,
                         },
@@ -700,7 +712,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
               },
               Array [
                 Object {
-                  "height": 144,
+                  "flex": 1,
+                  "minHeight": 144,
                 },
                 Object {},
               ],
@@ -743,6 +756,8 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                 style={
                   Object {
                     "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
                   }
                 }
                 testID="undefined/CallToActions"
@@ -777,9 +792,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         },
                         Object {
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                         },
                       ]
@@ -818,9 +833,9 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                         },
                         Object {
                           "fontSize": 14,
-                          "height": 16,
                           "lineHeight": 16,
                           "marginRight": 24,
+                          "minHeight": 16,
                           "minWidth": 48,
                         },
                       ]

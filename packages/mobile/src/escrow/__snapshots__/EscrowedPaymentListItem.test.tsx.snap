@@ -30,7 +30,8 @@ exports[`EscrowedPaymentReminderNotification renders correctly 1`] = `
         },
         Array [
           Object {
-            "height": 144,
+            "flex": 1,
+            "minHeight": 144,
           },
           Object {},
         ],
@@ -168,6 +169,8 @@ exports[`EscrowedPaymentReminderNotification renders correctly 1`] = `
       style={
         Object {
           "flexDirection": "row",
+          "flexWrap": "wrap",
+          "justifyContent": "flex-start",
         }
       }
       testID="EscrowedPaymentListItem/CallToActions"
@@ -202,9 +205,9 @@ exports[`EscrowedPaymentReminderNotification renders correctly 1`] = `
               },
               Object {
                 "fontSize": 14,
-                "height": 16,
                 "lineHeight": 16,
                 "marginRight": 24,
+                "minHeight": 16,
                 "minWidth": 48,
               },
             ]
@@ -243,9 +246,9 @@ exports[`EscrowedPaymentReminderNotification renders correctly 1`] = `
               },
               Object {
                 "fontSize": 14,
-                "height": 16,
                 "lineHeight": 16,
                 "marginRight": 24,
+                "minHeight": 16,
                 "minWidth": 48,
               },
             ]

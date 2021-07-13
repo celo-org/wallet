@@ -31,7 +31,8 @@ exports[`OutgoingPaymentRequestSummaryNotification renders a number when the add
           },
           Array [
             Object {
-              "height": 144,
+              "flex": 1,
+              "minHeight": 144,
             },
             Object {},
           ],
@@ -170,6 +171,8 @@ exports[`OutgoingPaymentRequestSummaryNotification renders a number when the add
         style={
           Object {
             "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
           }
         }
         testID="OutgoingPaymentRequestNotification/FAKE_ID_1/CallToActions"
@@ -204,9 +207,9 @@ exports[`OutgoingPaymentRequestSummaryNotification renders a number when the add
                 },
                 Object {
                   "fontSize": 14,
-                  "height": 16,
                   "lineHeight": 16,
                   "marginRight": 24,
+                  "minHeight": 16,
                   "minWidth": 48,
                 },
               ]
@@ -245,9 +248,9 @@ exports[`OutgoingPaymentRequestSummaryNotification renders a number when the add
                 },
                 Object {
                   "fontSize": 14,
-                  "height": 16,
                   "lineHeight": 16,
                   "marginRight": 24,
+                  "minHeight": 16,
                   "minWidth": 48,
                 },
               ]
@@ -293,7 +296,8 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for just on
           },
           Array [
             Object {
-              "height": 144,
+              "flex": 1,
+              "minHeight": 144,
             },
             Object {},
           ],
@@ -432,6 +436,8 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for just on
         style={
           Object {
             "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
           }
         }
         testID="OutgoingPaymentRequestNotification/FAKE_ID_1/CallToActions"
@@ -466,9 +472,9 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for just on
                 },
                 Object {
                   "fontSize": 14,
-                  "height": 16,
                   "lineHeight": 16,
                   "marginRight": 24,
+                  "minHeight": 16,
                   "minWidth": 48,
                 },
               ]
@@ -507,9 +513,9 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for just on
                 },
                 Object {
                   "fontSize": 14,
-                  "height": 16,
                   "lineHeight": 16,
                   "marginRight": 24,
+                  "minHeight": 16,
                   "minWidth": 48,
                 },
               ]
@@ -547,7 +553,8 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for multipl
       },
       Array [
         Object {
-          "height": 144,
+          "flex": 1,
+          "minHeight": 144,
         },
         Object {},
       ],
@@ -618,6 +625,8 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for multipl
         style={
           Object {
             "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
           }
         }
         testID="undefined/CallToActions"
@@ -652,9 +661,9 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for multipl
                 },
                 Object {
                   "fontSize": 14,
-                  "height": 16,
                   "lineHeight": 16,
                   "marginRight": 24,
+                  "minHeight": 16,
                   "minWidth": 48,
                 },
               ]

@@ -9,6 +9,7 @@ export default function MessagingCard({ style, ...props }: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: 144,
+    minHeight: 144,
+    flex: 1,
   },
 })
