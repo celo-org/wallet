@@ -10,6 +10,7 @@ import { AppRegistry } from 'react-native'
 import Logger from 'src/utils/Logger'
 // This needs to happen early so any errors (including in the store) get caught
 import { SENTRY_ENABLED } from 'src/sentry/Sentry'
+import * as LogRocket from 'src/logrocket/LogRocket'
 import App from 'src/app/App'
 import * as Sentry from '@sentry/react-native'
 import 'react-native-gesture-handler'
@@ -25,5 +26,9 @@ const customErrorHandler = (e, isFatal) => {
   defaultErrorHandler(e, isFatal)
 }
 ErrorUtils.setGlobalHandler(customErrorHandler)
+
+if (LogRocket.LOGROCKET_ENABLED) {
+  LogRocket.init()
+}
 
 AppRegistry.registerComponent('celo', () => App)
