@@ -92,18 +92,12 @@ exports[`BackupIntroduction renders correctly when backup completed 1`] = `
       </svg>
     </View>
   </View>
-  <RCTScrollView
-    contentContainerStyle={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
+  <RCTScrollView>
     <View>
       <View
         style={
           Object {
-            "flex": 1,
+            "flexGrow": 1,
             "paddingHorizontal": 16,
             "paddingTop": 24,
           }
@@ -303,7 +297,7 @@ exports[`BackupIntroduction renders correctly when backup not complete 1`] = `
   <RCTScrollView
     contentContainerStyle={
       Object {
-        "flex": 1,
+        "flexGrow": 1,
         "justifyContent": "center",
         "paddingHorizontal": 24,
       }

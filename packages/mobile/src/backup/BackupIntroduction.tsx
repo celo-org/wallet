@@ -82,7 +82,7 @@ function AccountKeyPostSetup() {
   const { t } = useTranslation(Namespaces.backupKeyFlow6)
 
   return (
-    <ScrollView contentContainerStyle={styles.postSetupContentContainer}>
+    <ScrollView>
       <View style={styles.postSetupContainer}>
         <Text style={styles.postSetupTitle}>{t('postSetupTitle')}</Text>
         <BackupPhraseContainer
@@ -110,15 +110,12 @@ const styles = StyleSheet.create({
     backgroundColor: colors.light,
   },
   introContainer: {
-    flex: 1,
+    flexGrow: 1,
     paddingHorizontal: Spacing.Thick24,
     justifyContent: 'center',
   },
-  postSetupContentContainer: {
-    flex: 1,
-  },
   postSetupContainer: {
-    flex: 1,
+    flexGrow: 1,
     paddingTop: Spacing.Thick24,
     paddingHorizontal: Spacing.Regular16,
   },
