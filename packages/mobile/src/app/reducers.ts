@@ -31,6 +31,7 @@ export interface State {
   // In 1.13 we had a critical error which requires a migration to fix. See |verificationMigration.ts|
   // for the migration code. We can remove all the code associated with this after some time has passed.
   ranVerificationMigrationAt: number | null | undefined
+  logPhoneNumberTypeEnabled: boolean
 }
 
 const initialState = {
@@ -58,6 +59,7 @@ const initialState = {
   rewardsMax: 1000,
   rewardsABTestThreshold: '0xffffffffffffffffffffffffffffffffffffffff',
   ranVerificationMigrationAt: null,
+  logPhoneNumberTypeEnabled: false,
 }
 
 export const currentLanguageSelector = (state: RootState) => state.app.language || i18n.language
@@ -165,6 +167,7 @@ export const appReducer = (
         rewardsStartDate: action.flags.rewardsStartDate,
         rewardsMax: action.flags.rewardsMax,
         rewardsABTestThreshold: action.flags.rewardsABTestThreshold,
+        logPhoneNumberTypeEnabled: action.flags.logPhoneNumberTypeEnabled,
       }
     case Actions.TOGGLE_INVITE_MODAL:
       return {

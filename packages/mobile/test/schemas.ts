@@ -567,6 +567,7 @@ export const v9Schema = {
     rewardsStartDate: 1622505600000,
     rewardsMax: 1000,
     ranVerificationMigrationAt: null,
+    logPhoneNumberTypeEnabled: false,
   },
   walletConnect: {
     pairings: [],

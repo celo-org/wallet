@@ -161,6 +161,7 @@ export enum VerificationEvents {
   verification_reveal_attestation_complete = 'verification_reveal_attestation_complete',
   verification_reveal_attestation_error = 'verification_reveal_attestation_error',
   verification_reveal_attestation_status = 'verification_reveal_attestation_status',
+  verification_reveal_attestation_phonenumber_type = 'verification_reveal_attestation_phonenumber_type',
 
   verification_revoke_start = 'verification_revoke_start',
   verification_revoke_finish = 'verification_revoke_finish',

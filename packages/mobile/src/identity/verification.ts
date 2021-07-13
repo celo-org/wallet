@@ -40,7 +40,10 @@ import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { setNumberVerified } from 'src/app/actions'
 import { ErrorMessages } from 'src/app/ErrorMessages'
 import { currentLanguageSelector } from 'src/app/reducers'
-import { shortVerificationCodesEnabledSelector } from 'src/app/selectors'
+import {
+  logPhoneNumberTypeEnabledSelector,
+  shortVerificationCodesEnabledSelector,
+} from 'src/app/selectors'
 import { CodeInputStatus } from 'src/components/CodeInput'
 import { SMS_RETRIEVER_APP_SIGNATURE } from 'src/config'
 import networkConfig from 'src/geth/networkConfig'
@@ -1044,6 +1047,7 @@ export function* tryRevealPhoneNumber(
   attestation: ActionableAttestation,
   isFeelessVerification: boolean
 ) {
+  const logPhoneNumberTypeEnabled: boolean = yield select(logPhoneNumberTypeEnabledSelector)
   const issuer = attestation.issuer
   Logger.debug(TAG + '@tryRevealPhoneNumber', `Revealing an attestation for issuer: ${issuer}`)
 
@@ -1085,6 +1089,20 @@ export function* tryRevealPhoneNumber(
         issuer,
         feeless: isFeelessVerification,
       })
+
+      if (logPhoneNumberTypeEnabled && body.phoneNumberType && body.credentials) {
+        Logger.debug(
+          TAG + '@tryRevealPhoneNumber',
+          'Sending phoneNumberType and credentials to analytics'
+        )
+        ValoraAnalytics.track(VerificationEvents.verification_reveal_attestation_phonenumber_type, {
+          issuer,
+          account,
+          phoneNumberType: body.phoneNumberType,
+          credentials: body.credentials,
+        })
+      }
+
       return true
     }
 
@@ -1094,7 +1112,7 @@ export function* tryRevealPhoneNumber(
 
       yield delay(REVEAL_RETRY_DELAY)
 
-      const { ok: retryOk, status: retryStatus } = yield call(
+      const { ok: retryOk, status: retryStatus, body: retryBody } = yield call(
         postToAttestationService,
         attestationsWrapper,
         attestation.attestationServiceURL,
@@ -1108,6 +1126,23 @@ export function* tryRevealPhoneNumber(
           issuer,
           feeless: isFeelessVerification,
         })
+
+        if (logPhoneNumberTypeEnabled && retryBody.phoneNumberType && retryBody.credentials) {
+          Logger.debug(
+            TAG + '@tryRevealPhoneNumber',
+            'Sending phoneNumberType and credentials to analytics on retry'
+          )
+          ValoraAnalytics.track(
+            VerificationEvents.verification_reveal_attestation_phonenumber_type,
+            {
+              issuer,
+              account,
+              phoneNumberType: retryBody.phoneNumberType,
+              credentials: retryBody.credentials,
+            }
+          )
+        }
+
         return true
       }
 

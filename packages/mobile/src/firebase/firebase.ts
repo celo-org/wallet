@@ -241,6 +241,7 @@ export function appRemoteFeatureFlagChannel() {
         rewardsPercent: flags?.rewardsPercent ?? 5,
         rewardsStartDate: flags?.rewardsStartDate ?? 1622505600000,
         rewardsMax: flags?.rewardsMax ?? 1000,
+        logPhoneNumberTypeEnabled: flags?.logPhoneNumberTypeEnabled ?? false,
       })
     }
 
