@@ -64,7 +64,7 @@ describe('Moonpay cash in', () => {
     }
     await moonpayWebhook(request, response)
 
-    expect(response.status).toHaveBeenCalledWith(401)
+    expect(response.status).toHaveBeenCalledWith(400)
     expect(saveTxHashProvider).not.toHaveBeenCalled()
   })
 

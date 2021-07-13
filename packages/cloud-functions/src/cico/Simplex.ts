@@ -7,7 +7,8 @@ import {
   SIMPLEX_DATA,
 } from '../config'
 import { UserDeviceInfo } from './composeCicoProviderUrl'
-import { fetchWithTimeout, getOrCreateUuid, getUserInitData } from './utils'
+import { Providers } from './Providers'
+import { fetchWithTimeout, getOrCreateUuid, getUserInitData, storeTransactionId } from './utils'
 
 export interface SimplexQuote {
   user_id: string
@@ -89,6 +90,7 @@ export const Simplex = {
       const { id, appVersion, userAgent } = deviceInfo
       const accountCreationData = await getUserInitData(currentIpAddress, id, userAgent)
       const userUuid = await getOrCreateUuid(userAddress)
+      await storeTransactionId(userAddress, paymentId, Providers.Simplex)
 
       const simplexPaymentRequestResponse: SimplexPaymentRequestResponse = await Simplex.post(
         `${SIMPLEX_DATA.api_url}/wallet/merchant/v2/payments/partner/data`,

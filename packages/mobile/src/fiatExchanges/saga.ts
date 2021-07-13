@@ -139,7 +139,6 @@ export function* searchNewItemsForProviderTxs({ transactions }: NewTransactionsI
       if (providerAddresses.includes(tx.address)) {
         ValoraAnalytics.track(FiatExchangeEvents.cash_in_success, {
           provider: lastUsedProvider?.name ?? 'unknown',
-          currency: tx.amount.currencyCode,
         })
         yield put(assignProviderToTxHash(tx.hash, tx.amount.currencyCode))
       }

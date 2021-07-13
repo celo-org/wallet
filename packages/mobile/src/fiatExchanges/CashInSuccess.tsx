@@ -1,9 +1,11 @@
 import Button from '@celo/react-components/components/Button'
 import fontStyles from '@celo/react-components/styles/fonts'
 import { StackScreenProps } from '@react-navigation/stack'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Image, StyleSheet, Text, View } from 'react-native'
+import { FiatExchangeEvents } from 'src/analytics/Events'
+import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import { Namespaces } from 'src/i18n'
 import { fiatExchange } from 'src/images/Images'
 import { noHeaderGestureDisabled } from 'src/navigator/Headers'
@@ -14,10 +16,24 @@ import { StackParamList } from 'src/navigator/types'
 type RouteProps = StackScreenProps<StackParamList, Screens.CashInSuccess>
 type Props = RouteProps
 
+const capitalizeProvider = (provider?: string) => {
+  if (provider) {
+    const providerArr = provider.split('')
+    providerArr[0].toUpperCase()
+    return providerArr.join('')
+  }
+}
+
 function CashInSuccessScreen({ route }: Props) {
   const { t } = useTranslation(Namespaces.fiatExchangeFlow)
 
   const { provider } = route.params
+
+  useEffect(() => {
+    ValoraAnalytics.track(FiatExchangeEvents.cash_in_success, {
+      provider,
+    })
+  }, [])
 
   return (
     <View style={styles.container}>
@@ -26,7 +42,7 @@ function CashInSuccessScreen({ route }: Props) {
         <Text style={styles.title}>{t('cicoSuccess.title')}</Text>
         <Text style={styles.contentText}>
           {provider
-            ? t('cicoSuccess.bodyWithProvider', { provider })
+            ? t('cicoSuccess.bodyWithProvider', { provider: capitalizeProvider(provider) })
             : t('cicoSuccess.bodyWithoutProvider')}
         </Text>
       </View>

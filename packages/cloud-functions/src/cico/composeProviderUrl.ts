@@ -1,4 +1,5 @@
 import crypto from 'crypto'
+import { v4 as uuidv4 } from 'uuid'
 import {
   CASH_IN_SUCCESS_DEEPLINK,
   CASH_IN_SUCCESS_URL,
@@ -18,6 +19,7 @@ export const composeProviderUrl = (provider: Providers, requestData: ProviderReq
   const cashInSuccessDeepLink = `${CASH_IN_SUCCESS_DEEPLINK}/${provider}`
 
   if (provider === Providers.Moonpay) {
+    const txId = uuidv4()
     const unsignedUrl = `
       ${MOONPAY_DATA.widget_url}
         ?apiKey=${MOONPAY_DATA.public_key}
@@ -26,6 +28,7 @@ export const composeProviderUrl = (provider: Providers, requestData: ProviderReq
         &baseCurrencyCode=${fiatCurrency}
         &baseCurrencyAmount=${fiatAmount}
         &redirectURL=${encodeURIComponent(cashInSuccessDeepLink)}
+        &externalTransactionId=${txId}
         `.replace(findContinguousSpaces, '')
 
     const signature = crypto
@@ -80,6 +83,7 @@ export const composeProviderUrl = (provider: Providers, requestData: ProviderReq
         }
         &fiat=${fiatAmount}
         &redirectUrl=${cashInSuccessDeepLink}
+        &isWebView=true
       `.replace(findContinguousSpaces, '')
   }
 }

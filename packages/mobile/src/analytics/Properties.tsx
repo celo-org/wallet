@@ -779,8 +779,7 @@ interface FiatExchangeEventsProperties {
     provider: string
   }
   [FiatExchangeEvents.cash_in_success]: {
-    provider: string
-    currency: string
+    provider: string | undefined
   }
   [FiatExchangeEvents.cico_add_funds_selected]: undefined
   [FiatExchangeEvents.cico_cash_out_selected]: undefined

@@ -58,3 +58,16 @@ jest.mock('firebase-functions', () => ({
     },
   })),
 }))
+
+jest.mock('./src/bigQuery', () => ({
+  trackEvent: jest.fn(
+    () => new Promise<void>((res) => res())
+  ),
+  getBigQueryInstance: jest.fn(() => ({
+    query: jest.fn(() => ({
+      ipAddress: '1.0.0.0',
+      timestamp: '2021-07-01 12:32',
+      userAgent: 'MAC SOMETHING SOMETHING',
+    })),
+  })),
+}))

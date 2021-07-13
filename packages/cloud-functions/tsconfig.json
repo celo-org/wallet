@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
-    "rootDir": "src",
+    "rootDir": "./src",
     "outDir": "./dist",
     "importHelpers": true,
     "jsx": "react",

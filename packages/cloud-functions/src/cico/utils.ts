@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { bigQueryDataset, bigQueryProjectId, getBigQueryInstance } from '../bigQuery'
 import { BLOCKCHAIN_API_URL, FETCH_TIMEOUT_DURATION } from '../config'
 import { countryToCurrency } from './providerAvailability'
+import { Providers } from './Providers'
 
 const fetch = require('node-fetch')
 
@@ -86,6 +87,30 @@ export const getOrCreateUuid = async (userAddress: string) => {
   return simplexId
 }
 
+export const storeTransactionId = async (
+  userAddress: string,
+  transactionId: string,
+  provider: Providers
+) => {
+  try {
+    await admin.database().ref(`cicoProviderTxs/${transactionId}`).update({ provider, userAddress })
+  } catch (error) {
+    console.error(`Could not store ${provider} transaction id for ${userAddress}`)
+  }
+}
+
+export const lookupAddressFromTxId = async (transactionId: string): Promise<string | undefined> => {
+  const transactionData = await admin
+    .database()
+    .ref(`cicoProviderTxs/${transactionId}`)
+    .once('value')
+    .then((snapshot) => snapshot.val())
+
+  if (transactionData?.userAddress) {
+    return transactionData.userAddress
+  }
+}
+
 export function getFirebaseAdminCreds(localAdmin: any) {
   if (!process.env.GCLOUD_PROJECT) {
     try {
@@ -111,7 +136,6 @@ export const fetchWithTimeout = async (
   duration: number = FETCH_TIMEOUT_DURATION
 ): Promise<Response> => {
   try {
-    // @ts-ignore
     const timeout = new Promise<undefined>((resolve, reject) => {
       const id = setTimeout(() => {
         clearTimeout(id)
@@ -120,11 +144,6 @@ export const fetchWithTimeout = async (
     })
 
     const response = await Promise.race([body ? fetch(url, body) : fetch(url), timeout])
-    // Response should always be defined because `reject` throws an error
-    // but just satifying the linter with this check
-    if (!response) {
-      throw Error(`Request timed out after ${duration}ms`)
-    }
     return response
   } catch (error) {
     throw error
@@ -188,4 +207,18 @@ export const fetchLocalCurrencyAndExchangeRate = async (
   }
 
   return result
+}
+
+export const flattenObject = (obj: any, parent?: string, res: any = {}) => {
+  const keys = Object.keys(obj)
+  for (let i = 0; i < keys.length; i += 1) {
+    const key = keys[i]
+    const propName = parent ? parent + '_' + key : key
+    if (obj[key] && typeof obj[key] == 'object') {
+      flattenObject(obj[key], propName, res)
+    } else {
+      res[propName] = obj[key]
+    }
+  }
+  return res
 }

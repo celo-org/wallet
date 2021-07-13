@@ -4,47 +4,48 @@ import i18next from 'i18next'
 // This allows us to access Cloud Function environment variables
 const config = functions.config()
 
-export const IP_API_KEY = config.ip_api.key
+export const IP_API_KEY = config.ip_api?.key
 
 export const MOONPAY_DATA = {
-  widget_url: config.moonpay.widget_url,
-  api_url: config.moonpay.api_url,
-  public_key: config.moonpay.public_key,
-  private_key: config.moonpay.private_key,
-  webhook_key: config.moonpay.webhook_key,
+  widget_url: config.moonpay?.widget_url,
+  api_url: config.moonpay?.api_url,
+  public_key: config.moonpay?.public_key,
+  private_key: config.moonpay?.private_key,
+  webhook_key: config.moonpay?.webhook_key,
   supported_currencies: ['USD', 'EUR', 'GBP'],
 }
 
 export const RAMP_DATA = {
-  widget_url: config.ramp.widget_url,
-  public_key: config.ramp.public_key,
-  pem_file: config.ramp.pem_file,
-  webhook_url: config.ramp.webhook_url,
+  widget_url: config.ramp?.widget_url,
+  public_key: config.ramp?.public_key,
+  pem_file: config.ramp?.pem_file,
+  webhook_url: config.ramp?.webhook_url,
 }
 
 export const TRANSAK_DATA = {
-  widget_url: config.transak.widget_url,
-  api_url: config.transak.api_url,
-  public_key: config.transak.public_key,
-  private_key: config.transak.private_key,
+  widget_url: config.transak?.widget_url,
+  api_url: config.transak?.api_url,
+  public_key: config.transak?.public_key,
+  private_key: config.transak?.private_key,
 }
 
 export const SIMPLEX_DATA = {
-  api_url: config.simplex.api_url,
-  checkout_url: config.simplex.checkout_url,
-  api_key: config.simplex.api_key,
+  api_url: config.simplex?.api_url,
+  checkout_url: config.simplex?.checkout_url,
+  event_url: config.simplex?.event_url,
+  api_key: config.simplex?.api_key,
 }
 
 export const XANPOOL_DATA = {
-  widget_url: config.xanpool.widget_url,
-  api_url: config.xanpool.api_url,
-  public_key: config.xanpool.public_key,
-  private_key: config.xanpool.private_key,
+  widget_url: config.xanpool?.widget_url,
+  api_url: config.xanpool?.api_url,
+  public_key: config.xanpool?.public_key,
+  private_key: config.xanpool?.private_key,
   supported_currencies: ['IDR', 'VND', 'SGD', 'HKD', 'TBH', 'INR', 'MYR', 'PHP'],
 }
 
-export const BLOCKCHAIN_API_URL = config.blockchain_api.url
-export const FULL_NODE_URL = config.full_node.url
+export const BLOCKCHAIN_API_URL = config.blockchain_api?.url
+export const FULL_NODE_URL = config.full_node?.url
 
 export const VALORA_LOGO_URL =
   'https://storage.googleapis.com/celo-mobile-mainnet.appspot.com/images/valora-icon.png'

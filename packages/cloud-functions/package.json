@@ -23,7 +23,7 @@
     "bignumber.js": "^9.0.0",
     "fast-json-stable-stringify": "~2.1.0",
     "firebase-admin": "^9.5.0",
-    "firebase-functions": "^3.6.0",
+    "firebase-functions": "^3.14.1",
     "i18next": "~19.0.2",
     "jsonwebtoken": "~8.5.1",
     "uuid": "^8.3.0"
