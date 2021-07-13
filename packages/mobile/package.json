@@ -60,6 +60,7 @@
     "@react-native-firebase/database": "^11.0.0",
     "@react-native-firebase/dynamic-links": "^11.0.0",
     "@react-native-firebase/messaging": "^11.0.0",
+    "@react-native-firebase/remote-config": "^11.0.0",
     "@react-native-firebase/storage": "^11.0.0",
     "@react-navigation/compat": "^5.3.10",
     "@react-navigation/drawer": "^5.11.4",

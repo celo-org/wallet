@@ -4,6 +4,7 @@ import { FirebaseDatabaseTypes } from '@react-native-firebase/database'
 import '@react-native-firebase/messaging'
 // We can't combine the 2 imports otherwise it only imports the type and fails at runtime
 import { FirebaseMessagingTypes } from '@react-native-firebase/messaging'
+import remoteConfig, { FirebaseRemoteConfigTypes } from '@react-native-firebase/remote-config'
 import { eventChannel } from 'redux-saga'
 import { call, select, take } from 'redux-saga/effects'
 import { currentLanguageSelector } from 'src/app/reducers'
@@ -218,39 +219,48 @@ export function appRemoteFeatureFlagChannel() {
     return null
   }
 
-  const errorCallback = (error: Error) => {
-    Logger.warn(TAG, error.toString())
-  }
-
   return eventChannel((emit: any) => {
-    const emitter = (snapshot: FirebaseDatabaseTypes.DataSnapshot) => {
-      const flags = snapshot.val()
-      Logger.debug(`Updated feature flags: ${JSON.stringify(flags)}`)
-      emit({
-        hideVerification: flags?.hideVerification ?? false,
-        showRaiseDailyLimitTarget: flags?.showRaiseDailyLimitTargetV2 ?? undefined,
-        celoEducationUri: flags?.celoEducationUri ?? null,
-        celoEuroEnabled: flags?.celoEuroEnabled ?? false,
-        shortVerificationCodesEnabled: flags?.shortVerificationCodesEnabled ?? false,
-        inviteRewardsEnabled: flags?.inviteRewardsEnabled ?? false,
-        inviteRewardCusd: flags?.inviteRewardCusd ?? 1,
-        inviteRewardWeeklyLimit: flags?.inviteRewardWeeklyLimit ?? 5,
-        walletConnectEnabled: flags?.walletConnectEnabled ?? false,
-        rewardsABTestThreshold:
-          flags?.rewardsABTestThreshold ?? '0xffffffffffffffffffffffffffffffffffffffff',
-        rewardsPercent: flags?.rewardsPercent ?? 5,
-        rewardsStartDate: flags?.rewardsStartDate ?? 1622505600000,
-        rewardsMax: flags?.rewardsMax ?? 1000,
-      })
+    const emitter = (fetchedRemotely: boolean) => {
+      if (fetchedRemotely) {
+        Logger.debug('Configs were retrieved from the backend and activated.')
+        const flags: FirebaseRemoteConfigTypes.ConfigValues = remoteConfig().getAll()
+        emit({
+          hideVerification: flags.hideVerification.asBoolean(),
+          showRaiseDailyLimitTarget: flags.showRaiseDailyLimitTargetV2.asString(),
+          celoEducationUri: flags.celoEducationUri.asString(),
+          celoEuroEnabled: flags.celoEuroEnabled.asBoolean(),
+          shortVerificationCodesEnabled: flags.shortVerificationCodesEnabled.asBoolean(),
+          inviteRewardsEnabled: flags.inviteRewardsEnabled.asBoolean(),
+          // TODO: why was this defaulting to 1 when the initial state is 0?
+          inviteRewardCusd: flags.inviteRewardCusd.asNumber(),
+          // TODO: same here default 5 but initial state 0
+          inviteRewardWeeklyLimit: flags.inviteRewardWeeklyLimit.asNumber(),
+          walletConnectEnabled: flags.walletConnectEnabled.asBoolean(),
+          rewardsABTestThreshold: flags.rewardsABTestThreshold.asString(),
+          rewardsPercent: flags.rewardsPercent.asNumber(),
+          rewardsStartDate: flags.rewardsStartDate.asNumber(),
+          rewardsMax: flags.rewardsMax.asNumber(),
+        })
+      } else {
+        Logger.debug(
+          'No configs were fetched from the backend, and the local configs were already activated'
+        )
+      }
     }
 
-    const onValueChange = firebase
-      .database()
-      .ref('versions/flags')
-      .on(VALUE_CHANGE_HOOK, emitter, errorCallback)
+    const errorCallback = (error: Error) => {
+      Logger.warn(TAG, error.toString())
+    }
+
+    // Note: values are cached by default for 12 hours
+    // this can be changed if needed:
+    // https://rnfirebase.io/remote-config/usage
+    remoteConfig().fetchAndActivate().then(emitter).catch(errorCallback)
+
+    // TODO: is there an api for receiving updates without restart?
 
     const cancel = () => {
-      firebase.database().ref('versions/flags').off(VALUE_CHANGE_HOOK, onValueChange)
+      // TODO: anything here?
     }
 
     return cancel
