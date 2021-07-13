@@ -70,7 +70,6 @@ describe(exchangeGoldAndStableTokens, () => {
         [call(getConnectedUnlockedAccount), account],
         [select(exchangeRatesSelector), makeExchangeRates('2', '0.5')],
         [matchers.call.fn(sendTransaction), true],
-        [matchers.call.fn(sendAndMonitorTransaction), { receipt: true, error: undefined }],
       ])
       .put.like({
         action: {
@@ -86,10 +85,6 @@ describe(exchangeGoldAndStableTokens, () => {
       .call.like({
         fn: sendTransaction,
         args: [{}, account, {}, undefined, undefined, Currency.Celo],
-      })
-      .call.like({
-        fn: sendAndMonitorTransaction,
-        args: [undefined, account, {}, undefined, Currency.Celo],
       })
       .run()
   })

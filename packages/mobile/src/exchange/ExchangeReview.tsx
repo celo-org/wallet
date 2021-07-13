@@ -61,7 +61,14 @@ const mapStateToProps = (state: RootState): StateProps => ({
 
 export class ExchangeReview extends React.Component<Props, State> {
   onPressConfirm = () => {
-    const { makerToken, takerToken, celoAmount, stableAmount, inputToken } = this.props.route.params
+    const {
+      makerToken,
+      takerToken,
+      celoAmount,
+      stableAmount,
+      inputToken,
+      inputAmount,
+    } = this.props.route.params
     const stableToken = makerToken === Currency.Celo ? takerToken : makerToken
 
     // BEGIN: Analytics
@@ -82,7 +89,7 @@ export class ExchangeReview extends React.Component<Props, State> {
     )
 
     const makerTokenAmount = makerToken === Currency.Celo ? celoAmount : stableAmount
-    this.props.exchangeTokens(makerToken, makerTokenAmount, takerToken)
+    this.props.exchangeTokens(makerToken, makerTokenAmount, takerToken, inputAmount)
   }
 
   componentDidMount() {

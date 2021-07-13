@@ -19,6 +19,7 @@ import Logger from 'src/utils/Logger'
 import { assertNever } from 'src/utils/typescript'
 import { getGasPrice } from 'src/web3/gas'
 import { fornoSelector } from 'src/web3/selectors'
+import { getLatestBlock } from 'src/web3/utils'
 
 const TAG = 'transactions/send'
 
@@ -213,10 +214,11 @@ export function* sendTransaction(
   context: TransactionContext,
   gas?: number,
   gasPrice?: BigNumber,
-  feeCurrency?: Currency
+  feeCurrency?: Currency,
+  waitForBlocks?: number
 ) {
   const sendTxMethod = function* (nonce?: number) {
-    const { receipt } = yield call(
+    const { receipt, confirmation } = yield call(
       sendTransactionPromises,
       tx,
       account,
@@ -226,6 +228,18 @@ export function* sendTransaction(
       gasPrice,
       nonce
     )
+    yield confirmation
+
+    if (waitForBlocks) {
+      const { number: initialBlockNumber } = yield call(getLatestBlock)
+      while (true) {
+        yield delay(500)
+        const { number: blockNumber } = yield call(getLatestBlock)
+        if (initialBlockNumber + waitForBlocks <= blockNumber) {
+          break
+        }
+      }
+    }
     return (yield receipt) as CeloTxReceipt
   }
   const receipt: CeloTxReceipt = yield call(wrapSendTransactionWithRetry, sendTxMethod, context)

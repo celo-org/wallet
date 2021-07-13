@@ -205,7 +205,10 @@ export function* doFetchExchangeRate(action: FetchExchangeRateAction) {
 
 export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
   Logger.debug(`${TAG}@exchangeGoldAndStableTokens`, 'Exchanging gold and stable token')
-  const { makerToken, makerAmount, takerToken } = action
+  const { makerToken, makerAmount, takerToken, inputAmount } = action
+  const isStableToGold = makerToken === Currency.Dollar
+  const isInputStable = makerAmount.isEqualTo(inputAmount) === isStableToGold
+
   Logger.debug(TAG, `Exchanging ${makerAmount.toString()} of token ${makerToken}`)
   let context: TransactionContext | null = null
   try {
@@ -230,7 +233,19 @@ export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
       throw new Error('Invalid exchange rate')
     }
 
-    context = yield call(createStandbyTx, makerToken, makerAmount, takerToken, exchangeRate)
+    const standbyTxInValue = inputAmount.multipliedBy(
+      isInputStable === !isStableToGold ? exchangeRate : 1
+    )
+    const standbyTxOutValue = inputAmount.multipliedBy(
+      isInputStable !== !isStableToGold ? exchangeRate.pow(-1) : 1
+    )
+    context = yield call(
+      createStandbyTx,
+      makerToken,
+      standbyTxInValue,
+      takerToken,
+      standbyTxOutValue
+    )
 
     const contractKit = yield call(getContractKit)
     const stableToken = (makerToken === Currency.Celo ? takerToken : makerToken) as StableCurrency
@@ -243,7 +258,7 @@ export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
     const exchangeContract: ExchangeWrapper = yield call(getExchangeContract, stableToken)
 
     const convertedMakerAmount: BigNumber = roundDown(
-      yield call(convertToContractDecimals, makerAmount, makerToken),
+      yield call(convertToContractDecimals, inputAmount, makerToken),
       0
     ) // Nearest integer in wei
     const sellGold = makerToken === Currency.Celo
@@ -268,15 +283,20 @@ export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
       // Note that exchange will still go through if makerAmount difference is within EXCHANGE_DIFFERENCE_TOLERATED
     }
 
-    // Ensure the user gets makerAmount at least as good as displayed (rounded to EXCHANGE_DIFFERENCE_TOLERATED)
+    const tokenExchangeRate = exchangeRate.pow(isStableToGold ? -1 : 1)
+
     const minimumTakerAmount = BigNumber.maximum(
-      getTakerAmount(makerAmount, exchangeRate).multipliedBy(
-        1 - EXCHANGE_DIFFERENCE_PERCENT_TOLERATED
+      getTakerAmount(inputAmount, isInputStable ? 1 : tokenExchangeRate).multipliedBy(
+        1 +
+          (isStableToGold && !isInputStable
+            ? EXCHANGE_DIFFERENCE_PERCENT_TOLERATED
+            : -EXCHANGE_DIFFERENCE_PERCENT_TOLERATED)
       ),
       0
     )
     const updatedTakerAmount = getTakerAmount(makerAmount, updatedExchangeRate)
-    if (minimumTakerAmount.isGreaterThan(updatedTakerAmount)) {
+
+    if (minimumTakerAmount[isStableToGold ? 'isLessThan' : 'isGreaterThan'](updatedTakerAmount)) {
       ValoraAnalytics.track(CeloExchangeEvents.celo_exchange_error, {
         error: `Not receiving enough ${makerToken}. Expected ${minimumTakerAmount} but received ${updatedTakerAmount.toString()}`,
       })
@@ -300,7 +320,7 @@ export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
 
     // Generate and send a transaction to approve payment to the exchange.
     let approveTx
-    if (makerToken === Currency.Celo) {
+    if (!isStableToGold) {
       approveTx = goldTokenContract.approve(
         exchangeContract.address,
         convertedMakerAmount.toString()
@@ -308,7 +328,7 @@ export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
     } else {
       approveTx = stableTokenContract.approve(
         exchangeContract.address,
-        convertedMakerAmount.toString()
+        convertedTakerAmount.multipliedBy(10 ** 20).toString()
       )
     }
 
@@ -326,10 +346,13 @@ export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
     contractKit.defaultAccount = account
 
     const tx: CeloTransactionObject<string> = yield call(
-      exchangeContract.exchange,
+      isStableToGold !== isInputStable ? exchangeContract.buy : exchangeContract.sell,
       convertedMakerAmount.toString(),
-      convertedTakerAmount.toString(),
-      sellGold
+      convertedTakerAmount
+        .multipliedBy(isStableToGold !== isInputStable ? 1 : tokenExchangeRate)
+        .decimalPlaces(0)
+        .toString(),
+      !isInputStable
     )
 
     if (context === null) {
@@ -376,22 +399,21 @@ export function* exchangeGoldAndStableTokens(action: ExchangeTokensAction) {
 }
 
 function* createStandbyTx(
-  makerToken: Currency,
-  makerAmount: BigNumber,
-  takerToken: Currency,
-  exchangeRate: BigNumber
+  inToken: Currency,
+  inValue: BigNumber,
+  outToken: Currency,
+  outValue: BigNumber
 ) {
-  const takerAmount = getTakerAmount(makerAmount, exchangeRate)
-  const context = newTransactionContext(TAG, `Exchange ${makerToken}`)
+  const context = newTransactionContext(TAG, `Exchange ${inToken}`)
   yield put(
     addStandbyTransaction({
       context,
       type: TokenTransactionType.Exchange,
       status: TransactionStatus.Pending,
-      inCurrency: makerToken,
-      inValue: makerAmount.toString(),
-      outCurrency: takerToken,
-      outValue: takerAmount.toString(),
+      inCurrency: inToken,
+      inValue: inValue.toString(),
+      outCurrency: outToken,
+      outValue: outValue.toString(),
       timestamp: Math.floor(Date.now() / 1000),
     })
   )

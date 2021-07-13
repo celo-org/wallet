@@ -44,6 +44,7 @@ export interface ExchangeTokensAction {
   makerToken: Currency
   makerAmount: BigNumber
   takerToken: Currency
+  inputAmount: BigNumber
 }
 
 export interface UpdateCeloGoldExchangeRateHistory {
@@ -112,12 +113,14 @@ export const updateCeloGoldExchangeRateHistory = (
 export const exchangeTokens = (
   makerToken: Currency,
   makerAmount: BigNumber,
-  takerToken: Currency
+  takerToken: Currency,
+  inputAmount: BigNumber
 ): ExchangeTokensAction => ({
   type: Actions.EXCHANGE_TOKENS,
   makerToken,
   makerAmount,
   takerToken,
+  inputAmount,
 })
 
 export const withdrawCelo = (
