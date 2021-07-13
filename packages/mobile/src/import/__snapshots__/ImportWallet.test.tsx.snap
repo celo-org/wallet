@@ -391,7 +391,6 @@ exports[`ImportWallet renders correctly and is disabled with no text 1`] = `
                 }
               >
                 <Text
-                  numberOfLines={1}
                   style={
                     Array [
                       undefined,

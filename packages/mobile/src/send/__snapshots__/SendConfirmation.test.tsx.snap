@@ -207,7 +207,6 @@ exports[`SendConfirmation renders correctly 1`] = `
               </View>
             </View>
             <Text
-              numberOfLines={1}
               style={
                 Array [
                   Object {
@@ -902,7 +901,6 @@ exports[`SendConfirmation renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,
@@ -989,7 +987,6 @@ exports[`SendConfirmation renders correctly 1`] = `
                 }
               >
                 <Text
-                  numberOfLines={1}
                   style={
                     Array [
                       undefined,
@@ -1027,7 +1024,6 @@ exports[`SendConfirmation renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,

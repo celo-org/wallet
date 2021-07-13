@@ -132,7 +132,6 @@ exports[`TokenBottomSheet renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Object {
@@ -153,7 +152,6 @@ exports[`TokenBottomSheet renders correctly 1`] = `
             13.30
           </Text>
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Object {
@@ -234,7 +232,6 @@ exports[`TokenBottomSheet renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Object {
@@ -255,7 +252,6 @@ exports[`TokenBottomSheet renders correctly 1`] = `
             40.00
           </Text>
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Object {

@@ -129,7 +129,6 @@ exports[`IncomingPaymentRequestListScreen renders correctly with requests 1`] = 
                     testID="IncomingPaymentRequestNotification/7363bvby2ba8270273/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -388,7 +387,6 @@ exports[`IncomingPaymentRequestListScreen renders correctly with requests 1`] = 
                     testID="IncomingPaymentRequestNotification/7363bvby2ba8270273/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -647,7 +645,6 @@ exports[`IncomingPaymentRequestListScreen renders correctly with requests 1`] = 
                     testID="IncomingPaymentRequestNotification/7363bvby2ba8270273/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,

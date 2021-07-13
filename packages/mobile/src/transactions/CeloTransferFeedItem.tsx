@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flex: 1,
     paddingBottom: 2,
+    flexWrap: 'wrap',
   },
   desc: {
     flexDirection: 'row',

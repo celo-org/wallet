@@ -123,7 +123,6 @@ exports[`FiatExchange renders correctly 1`] = `
         global:currentBalance
       </Text>
       <Text
-        numberOfLines={1}
         style={
           Array [
             Object {

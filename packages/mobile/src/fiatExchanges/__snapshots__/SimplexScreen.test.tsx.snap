@@ -521,7 +521,6 @@ exports[`SimplexScreen renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [],
@@ -586,7 +585,6 @@ exports[`SimplexScreen renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [
@@ -662,7 +660,6 @@ exports[`SimplexScreen renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [],
@@ -847,7 +844,6 @@ exports[`SimplexScreen renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [
@@ -1460,7 +1456,6 @@ exports[`SimplexScreen renders correctly 2`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [],
@@ -1525,7 +1520,6 @@ exports[`SimplexScreen renders correctly 2`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [
@@ -1601,7 +1595,6 @@ exports[`SimplexScreen renders correctly 2`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [],
@@ -1786,7 +1779,6 @@ exports[`SimplexScreen renders correctly 2`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 Array [

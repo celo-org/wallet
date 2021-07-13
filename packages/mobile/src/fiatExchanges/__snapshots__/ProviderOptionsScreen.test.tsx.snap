@@ -189,7 +189,6 @@ exports[`ProviderOptionsScreen renders correctly 2`] = `
                     }
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           Array [
@@ -354,7 +353,6 @@ exports[`ProviderOptionsScreen renders correctly 2`] = `
                     }
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           Array [
@@ -678,7 +676,6 @@ exports[`ProviderOptionsScreen renders correctly 2`] = `
                     }
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           Array [
@@ -860,7 +857,6 @@ exports[`ProviderOptionsScreen renders correctly 2`] = `
                     }
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           Array [

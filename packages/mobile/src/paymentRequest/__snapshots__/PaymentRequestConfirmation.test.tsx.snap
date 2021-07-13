@@ -138,7 +138,6 @@ exports[`PaymentRequestConfirmation renders correctly for request payment confir
               </View>
             </View>
             <Text
-              numberOfLines={1}
               style={
                 Array [
                   Object {
@@ -261,7 +260,6 @@ exports[`PaymentRequestConfirmation renders correctly for request payment confir
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,

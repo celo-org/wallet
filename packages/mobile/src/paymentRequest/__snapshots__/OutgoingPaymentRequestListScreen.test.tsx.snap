@@ -129,7 +129,6 @@ exports[`OutgoingPaymentRequestListScreen renders correctly with requests 1`] = 
                     testID="OutgoingPaymentRequestNotification/7363bvby2ba8270273/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -378,7 +377,6 @@ exports[`OutgoingPaymentRequestListScreen renders correctly with requests 1`] = 
                     testID="OutgoingPaymentRequestNotification/7363bvby2ba8270273/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -627,7 +625,6 @@ exports[`OutgoingPaymentRequestListScreen renders correctly with requests 1`] = 
                     testID="OutgoingPaymentRequestNotification/7363bvby2ba8270273/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,

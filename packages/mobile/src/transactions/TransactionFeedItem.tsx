@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
   },
   title: {
     ...fontStyles.regular500,
+    flexShrink: 1,
   },
   subtitle: {
     ...fontStyles.small,
@@ -92,6 +93,9 @@ const styles = StyleSheet.create({
     ...fontStyles.regular500,
     marginLeft: 'auto',
     paddingLeft: 10,
+    width: '40%',
+    textAlign: 'right',
+    flexWrap: 'wrap',
   },
   amountReceived: {
     color: colors.greenUI,

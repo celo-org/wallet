@@ -24,10 +24,10 @@ exports[`RecipientItem renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "flex": 1,
         "flexDirection": "row",
-        "height": 64,
+        "flexWrap": "wrap",
         "justifyContent": "space-between",
+        "minHeight": 64,
         "paddingHorizontal": 16,
       }
     }

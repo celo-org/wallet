@@ -63,7 +63,6 @@ Array [
       }
     >
       <Text
-        numberOfLines={1}
         style={
           Array [
             undefined,
@@ -150,7 +149,6 @@ Array [
             }
           >
             <Text
-              numberOfLines={1}
               style={
                 Array [
                   undefined,
@@ -188,7 +186,6 @@ Array [
       }
     >
       <Text
-        numberOfLines={1}
         style={
           Array [
             undefined,

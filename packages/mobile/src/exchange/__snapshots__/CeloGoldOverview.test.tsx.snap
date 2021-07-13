@@ -36,7 +36,6 @@ exports[`renders correctly when not ready 1`] = `
     testID="CeloBalance"
   >
     <Text
-      numberOfLines={1}
       style={
         Array [
           undefined,
@@ -64,7 +63,6 @@ exports[`renders correctly when not ready 1`] = `
   >
     Equal to 
     <Text
-      numberOfLines={1}
       style={
         Array [
           undefined,
@@ -118,7 +116,6 @@ exports[`renders correctly when ready 1`] = `
     testID="CeloBalance"
   >
     <Text
-      numberOfLines={1}
       style={
         Array [
           undefined,
@@ -146,7 +143,6 @@ exports[`renders correctly when ready 1`] = `
   >
     Equal to 
     <Text
-      numberOfLines={1}
       style={
         Array [
           undefined,

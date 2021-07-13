@@ -269,7 +269,6 @@ exports[`ReclaimPaymentConfirmationCard renders correctly for send payment confi
       }
     >
       <Text
-        numberOfLines={1}
         style={
           Array [
             undefined,
@@ -595,7 +594,6 @@ exports[`ReclaimPaymentConfirmationCard renders correctly for send payment confi
       }
     >
       <Text
-        numberOfLines={1}
         style={
           Array [
             undefined,
@@ -685,7 +683,6 @@ exports[`ReclaimPaymentConfirmationCard renders correctly for send payment confi
       }
     >
       <Text
-        numberOfLines={1}
         style={
           Array [
             undefined,
@@ -772,7 +769,6 @@ exports[`ReclaimPaymentConfirmationCard renders correctly for send payment confi
             }
           >
             <Text
-              numberOfLines={1}
               style={
                 Array [
                   undefined,
@@ -810,7 +806,6 @@ exports[`ReclaimPaymentConfirmationCard renders correctly for send payment confi
       }
     >
       <Text
-        numberOfLines={1}
         style={
           Array [
             undefined,

@@ -171,7 +171,6 @@ exports[`WithdrawCeloReviewScreen renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,
@@ -314,7 +313,6 @@ exports[`WithdrawCeloReviewScreen renders correctly 1`] = `
                 }
               >
                 <Text
-                  numberOfLines={1}
                   style={
                     Array [
                       undefined,
@@ -395,7 +393,6 @@ exports[`WithdrawCeloReviewScreen renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,
@@ -482,7 +479,6 @@ exports[`WithdrawCeloReviewScreen renders correctly 1`] = `
                 }
               >
                 <Text
-                  numberOfLines={1}
                   style={
                     Array [
                       undefined,
@@ -520,7 +516,6 @@ exports[`WithdrawCeloReviewScreen renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,

@@ -83,7 +83,6 @@ exports[`IncomingPaymentRequestListItem renders correctly 1`] = `
           testID="IncomingPaymentRequestNotification/1/Amount"
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,

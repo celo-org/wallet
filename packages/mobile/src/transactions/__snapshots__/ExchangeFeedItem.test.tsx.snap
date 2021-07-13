@@ -73,6 +73,7 @@ exports[`ExchangeFeedItem renders correctly 1`] = `
           style={
             Object {
               "color": "#2E3338",
+              "flexShrink": 1,
               "fontFamily": "Inter-Medium",
               "fontSize": 16,
               "lineHeight": 22,
@@ -82,17 +83,19 @@ exports[`ExchangeFeedItem renders correctly 1`] = `
           feedItemBoughtCeloTitle
         </Text>
         <Text
-          numberOfLines={1}
           style={
             Array [
               Array [
                 Object {
                   "color": "#2E3338",
+                  "flexWrap": "wrap",
                   "fontFamily": "Inter-Medium",
                   "fontSize": 16,
                   "lineHeight": 22,
                   "marginLeft": "auto",
                   "paddingLeft": 10,
+                  "textAlign": "right",
+                  "width": "40%",
                 },
                 false,
               ],

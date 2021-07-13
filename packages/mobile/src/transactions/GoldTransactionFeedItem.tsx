@@ -84,15 +84,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flex: 1,
     padding: variables.contentPadding,
+    flexWrap: 'wrap',
   },
   firstRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     flex: 1,
     paddingBottom: 2,
+    flexWrap: 'wrap',
   },
   desc: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   txMode: {
     ...fontStyles.regular500,
@@ -101,6 +104,7 @@ const styles = StyleSheet.create({
   exchangeRate: {
     ...fontStyles.regular500,
     color: colors.dark,
+    flexWrap: 'wrap',
   },
   amount: {
     ...fontStyles.regular500,

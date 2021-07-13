@@ -85,7 +85,6 @@ Array [
             testID="OutgoingPaymentRequestNotification/1/Amount"
           >
             <Text
-              numberOfLines={1}
               style={
                 Array [
                   undefined,

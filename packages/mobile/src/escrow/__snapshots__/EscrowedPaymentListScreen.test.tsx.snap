@@ -129,7 +129,6 @@ exports[`EscrowedPaymentListScreen renders correctly with payments 1`] = `
                     testID="EscrowedPaymentListItem/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -388,7 +387,6 @@ exports[`EscrowedPaymentListScreen renders correctly with payments 1`] = `
                     testID="EscrowedPaymentListItem/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -647,7 +645,6 @@ exports[`EscrowedPaymentListScreen renders correctly with payments 1`] = `
                     testID="EscrowedPaymentListItem/Amount"
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,

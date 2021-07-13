@@ -54,7 +54,6 @@ exports[`ExchangeReview renders correctly 1`] = `
               exchangeAmount
             </Text>
             <Text
-              numberOfLines={1}
               style={
                 Array [
                   Object {
@@ -123,7 +122,6 @@ exports[`ExchangeReview renders correctly 1`] = `
               >
                 Subtotal @ 
                 <Text
-                  numberOfLines={1}
                   style={
                     Array [
                       undefined,
@@ -154,7 +152,6 @@ exports[`ExchangeReview renders correctly 1`] = `
               }
             >
               <Text
-                numberOfLines={1}
                 style={
                   Array [
                     undefined,
@@ -297,7 +294,6 @@ exports[`ExchangeReview renders correctly 1`] = `
                     }
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -390,7 +386,6 @@ exports[`ExchangeReview renders correctly 1`] = `
               }
             >
               <Text
-                numberOfLines={1}
                 style={
                   Array [
                     undefined,
@@ -477,7 +472,6 @@ exports[`ExchangeReview renders correctly 1`] = `
                     }
                   >
                     <Text
-                      numberOfLines={1}
                       style={
                         Array [
                           undefined,
@@ -515,7 +509,6 @@ exports[`ExchangeReview renders correctly 1`] = `
               }
             >
               <Text
-                numberOfLines={1}
                 style={
                   Array [
                     undefined,
@@ -602,7 +595,6 @@ exports[`ExchangeReview renders correctly 1`] = `
           }
         >
           <Text
-            numberOfLines={1}
             style={
               Array [
                 undefined,
