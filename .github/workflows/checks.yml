@@ -65,3 +65,24 @@ jobs:
       - run: yarn
       - run: yarn run prettify:diff
       - run: yarn run lint
+  mobile-tests:
+    name: Mobile Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+          check-latest: true
+      - name: Install Yarn dependencies
+        run: yarn
+      - name: Build Yarn packages
+        run: yarn build --ignore docs
+      - name: Run mobile tests
+        run: |
+          mkdir -p test-results/jest
+          yarn --cwd packages/mobile test:ci
+      - name: Upload Coverage Report
+        uses: actions/upload-artifact@v2
+        with:
+          path: packages/mobile/coverage/lcov-report
