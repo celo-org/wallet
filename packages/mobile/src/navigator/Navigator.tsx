@@ -41,6 +41,9 @@ import ExternalExchanges, {
   externalExchangesScreenOptions,
 } from 'src/fiatExchanges/ExternalExchanges'
 import FiatExchangeAmount from 'src/fiatExchanges/FiatExchangeAmount'
+import FiatExchangeIntegratedAmount, {
+  fiatExchangeIntegratedAmountOptions,
+} from 'src/fiatExchanges/FiatExchangeIntegratedAmount'
 import FiatExchangeOptions, {
   fiatExchangesOptionsScreenOptions,
 } from 'src/fiatExchanges/FiatExchangeOptions'
@@ -458,6 +461,11 @@ const settingsScreens = (Navigator: typeof Stack) => (
       options={FiatExchangeAmount.navOptions}
       name={Screens.FiatExchangeAmount}
       component={FiatExchangeAmount}
+    />
+    <Navigator.Screen
+      options={fiatExchangeIntegratedAmountOptions}
+      name={Screens.FiatExchangeIntegratedAmount}
+      component={FiatExchangeIntegratedAmount}
     />
     <Navigator.Screen
       options={fiatExchangesOptionsScreenOptions}

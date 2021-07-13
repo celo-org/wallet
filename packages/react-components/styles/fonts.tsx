@@ -48,6 +48,12 @@ const fontStyles = StyleSheet.create({
     fontFamily: Jost.Medium,
     color: colors.dark,
   },
+  h3: {
+    fontSize: 16,
+    lineHeight: 20,
+    fontFamily: Jost.Medium,
+    color: colors.dark,
+  },
   sectionHeader: {
     fontSize: 14,
     lineHeight: 16,

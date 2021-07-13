@@ -93,6 +93,7 @@ export type StackParamList = {
     currency: Currency
   }
   [Screens.FiatExchange]: undefined
+  [Screens.FiatExchangeIntegratedAmount]: undefined
   [Screens.FiatExchangeAmount]: {
     currency: Currency
     paymentMethod: PaymentMethod.Card | PaymentMethod.Bank
