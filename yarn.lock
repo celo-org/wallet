@@ -4878,38 +4878,43 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-5.8.0.tgz#6afdc9fb8cc6ecf964949f39d03776f57017303a"
   integrity sha512-MIidbcOggE4InzMunRmo7BW7wovHfoEnlYp11jyIkG4MNXaMFUbXJHUufNby2iuQnQmnTA4AfKWK9uBD8NGDRg==
 
-"@react-native-firebase/app@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-11.0.0.tgz#dee23fd79efa42c008306d2e9163afd9391f1567"
-  integrity sha512-jsystyGQX8Vx8w32YTySJGNwBNeRpEvUIxa+u7GWR8MngkwenyJOGwGT+5sHxZwJUGQl3X/7i1UKWzcrSDG5jg==
+"@react-native-firebase/app@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-12.1.0.tgz#fa2c989af2bd876ed83f792c0152067184a7db27"
+  integrity sha512-goulw5PFGo2NIqqZXpv7kyv0XPKWQT2G/2ZXEFMdgDnxZGRyiAH82gR/v9rAMCww1lFVTeMZdphU5WFN/qdptg==
   dependencies:
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-11.0.0.tgz#1bf3afd53c88d7c6701440bb2530477fb4ac53ac"
-  integrity sha512-N5nsK0S6jWWUSGEzSNkCdlAzEdZRa5xA0VOklKlQ29uYiKwegog+bY0zxmDK+m6hqbLF0IABf4k6goZ/D0P9qg==
+"@react-native-firebase/auth@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-12.1.0.tgz#1897714d7650f49946611f932e3c6119482e49e9"
+  integrity sha512-9/peQaPYl5M2q4q/06Sih3z+BL9wOlmXgPex7jqbF99DN6IUigEq6eOt0sR3/g0ftS/IRDG7BfbIN5MtuY1vbg==
 
-"@react-native-firebase/database@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-11.0.0.tgz#5d7a97585ef9abac73a7f7b4f9ecd3ab722e5be1"
-  integrity sha512-n543kpo2LzR4sWVfy360dkuczu5NlARi2CBAZaYU+FlzSalHagmAwAr8qD+RXQcFmn/kVlsFRVCeMd0JDFKUzQ==
+"@react-native-firebase/database@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-12.1.0.tgz#ca1095b77db957dd0b7c997b50affe99d393d644"
+  integrity sha512-3VsCd6r474RZMAlj6rqntHnzsYsU58qa6Joo0GshmzuWRkMTbpj8sd3R9sMICavEwxwYbN6Gau7W6GJIyTf7Jw==
 
-"@react-native-firebase/dynamic-links@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-11.0.0.tgz#9a01e9985d2e9bdee20eeca8ec0b7a13eb24e8e6"
-  integrity sha512-lXUBt8rV2UzDQ7BSYXmq2IvAZyzVSlqVvBNRWyCIpZyi9K96JSaI8trliNjuW7qPBGM27Et4gp4haqTNKNK5EA==
+"@react-native-firebase/dynamic-links@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-12.1.0.tgz#76135ad45619a2bae72e454f7a7a25d550adef25"
+  integrity sha512-yRZhumHXBc16T5I8NOPhwWfwIXoWRZx8KhfDfNGZg4+9OkAhYN7C9emtZiGeRqxevm6I8cv3aoyq8CHzWVi43A==
 
-"@react-native-firebase/messaging@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-11.0.0.tgz#21c93acb5899399b0ca28fd3a6f4c7c5555b6c95"
-  integrity sha512-d1lnVyqwQ7Jzy6S4Nyn6OJ551WTF1vjaHscoh16o5Lj78UhyVMgTvz9RxdJIWlYz7W1SAvdIM3rPuwQK/qtF/g==
+"@react-native-firebase/messaging@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-12.1.0.tgz#eb74e37edabd0c392e28f6df622adafeb1617e23"
+  integrity sha512-8kL2Gs5N6o4aJdeoNrrYnmFvMms+H+mjj3ttlQLWobN7hy7fLCD9sbahJR9W3jzSoOb+XTaxk6Xf3PzVBBB7Mw==
 
-"@react-native-firebase/storage@^11.0.0":
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-11.0.0.tgz#7bb304506462f432ee052aed877fad97ddfac5de"
-  integrity sha512-/qH3/t/MzzHPzvzxJ7WJXB0gZzXr9T09tx6oJ85GNXbT0g08trm32zwF3laottOEx4xkUT01pPnNFK5d5nUktw==
+"@react-native-firebase/remote-config@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/remote-config/-/remote-config-12.1.0.tgz#91678af45dfc1789730e3637c304db6aefaea614"
+  integrity sha512-h8R2z7spIjlkFx1nCJ/mD6Ycaj7xBigb85dRDc6/9DRDqWm39RsQXELEQOLvijOudI3+CvbOBbC3lmNdWM12Gw==
+
+"@react-native-firebase/storage@^12.1.0":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-12.1.0.tgz#efb70ad2d5dd062659aa5c830d976e262b14f4fb"
+  integrity sha512-xp5LGqPH6KcD0N9yc0Ye454ppxO/+5idL0AqXrmdA/B+HPHt49JRamkXSW8PrFXG3DVm3LcJEKHMhY6cEtpd5w==
 
 "@react-navigation/compat@^5.3.10":
   version "5.3.10"
