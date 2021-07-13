@@ -1,6 +1,6 @@
 import PhoneNumberWithFlag from '@celo/react-components/components/PhoneNumberWithFlag'
 import colors from '@celo/react-components/styles/colors'
-import fontStyles, { fontFamily } from '@celo/react-components/styles/fonts'
+import fontStyles from '@celo/react-components/styles/fonts'
 import {
   createDrawerNavigator,
   DrawerContentComponentProps,
@@ -167,7 +167,6 @@ function CustomDrawerContent(props: DrawerContentComponentProps<DrawerContentOpt
       <View style={styles.drawerBottom}>
         <Text style={fontStyles.label}>{i18n.t('dappkit:address')}</Text>
         <AccountNumber address={account || ''} location={Screens.DrawerNavigator} />
-        <Text style={styles.link}>{i18n.t('accountScreen10:tapToCopy')}</Text>
         <Text style={styles.smallLabel}>{`Version ${appVersion}`}</Text>
       </View>
     </DrawerContentScrollView>
@@ -277,12 +276,6 @@ const styles = StyleSheet.create({
   smallLabel: {
     ...fontStyles.small,
     color: colors.gray4,
-  },
-  link: {
-    ...fontStyles.label,
-    textDecorationLine: 'underline',
-    color: colors.gray4,
-    fontFamily,
-    marginBottom: 32,
+    marginTop: 32,
   },
 })

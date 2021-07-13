@@ -1,13 +1,13 @@
 {
   "invite": "Invitar",
-  "celoRewards": "Recompensas Celo",
+  "celoRewards": "Recompensas CELO",
   "languageSettings": "Idioma",
   "localCurrencySetting": "Moneda",
   "licenses": "Licencias",
-  "removeAccountTitle": "Reinicializar Valora",
-  "removeAccountDetails": "Al reinicializar se borrará tu cuenta de este dispositivo. Tu cuenta mantendrá los fondos que tenga, pero solo la podrás recuperar con tu Clave de Cuenta.",
+  "removeAccountTitle": "Restablecer Valora",
+  "removeAccountDetails": "Al restablecer se borrará tu cuenta de este dispositivo. Tu cuenta mantendrá los fondos que tenga, pero solo la podrás recuperar con tu Clave de Cuenta.",
   "legal": "Legal",
-  "securityAndData": "Seguridad y datos",
+  "securityAndData": "Seguridad y Datos",
   "changePin": "Cambiar PIN",
   "pinChanged": "PIN cambiado",
   "pinChangeFailed": "Error al cambiar el PIN",
@@ -100,5 +100,8 @@
   "storeRecoveryTitle": "Necesitamos que vuelvas a configurar tu cuenta",
   "storeRecoveryBody": "Ha habido un error. Estamos al tanto del problema y estamos trabajamos para solucionarlo. Mientras tanto, tendrás que volver a completar el proceso de configuración.",
   "storeRecoveryButton": "Restablecer cuenta",
+  "havingTrouble": "¿Tiene problemas?",
+  "shakeForSupport": "Este menú aparece cuando agita su dispositivo.",
+  "contactSupport": "Contactar a Soporte",
   "tapToCopy": "Toca para copiar"
 }

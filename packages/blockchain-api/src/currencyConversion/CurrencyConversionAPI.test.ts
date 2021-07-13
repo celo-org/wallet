@@ -140,16 +140,20 @@ describe('CurrencyConversionAPI', () => {
   })
 
   it('should retrieve rate for cGLD/EUR', async () => {
-    const impliedExchangeRates = { 'cGLD/cEUR': new BigNumber(10) }
     const result = await currencyConversionAPI.getExchangeRate({
       sourceCurrencyCode: 'cGLD',
       currencyCode: 'EUR',
-      impliedExchangeRates,
     })
-    expect(result).toEqual(new BigNumber(10))
+    expect(result).toEqual(new BigNumber(200))
 
-    expect(mockDefaultGetExchangeRate).toHaveBeenCalledTimes(0)
-    expect(mockGoldGetExchangeRate).toHaveBeenCalledTimes(0)
+    expect(mockGoldGetExchangeRate).toHaveBeenCalledWith({
+      sourceCurrencyCode: 'cGLD',
+      currencyCode: 'cUSD',
+    })
+    expect(mockDefaultGetExchangeRate).toHaveBeenCalledWith({
+      sourceCurrencyCode: 'USD',
+      currencyCode: 'EUR',
+    })
   })
 
   it('should retrieve rate for EUR/cGLD', async () => {
@@ -157,8 +161,15 @@ describe('CurrencyConversionAPI', () => {
       sourceCurrencyCode: 'EUR',
       currencyCode: 'cGLD',
     })
-    expect(result).toEqual(new BigNumber(10))
-    expect(mockDefaultGetExchangeRate).toHaveBeenCalledTimes(0)
-    expect(mockGoldGetExchangeRate).toHaveBeenCalledTimes(1)
+    expect(result).toEqual(new BigNumber(200))
+
+    expect(mockDefaultGetExchangeRate).toHaveBeenCalledWith({
+      sourceCurrencyCode: 'EUR',
+      currencyCode: 'USD',
+    })
+    expect(mockGoldGetExchangeRate).toHaveBeenCalledWith({
+      sourceCurrencyCode: 'cUSD',
+      currencyCode: 'cGLD',
+    })
   })
 })

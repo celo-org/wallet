@@ -18,8 +18,8 @@
   "inputSubtotal": "Total parcial @ <2></2>",
   "inputSubtotal_gold": "$t(global:celoGold) @ <2></2>",
   "cancel": "Cancelar",
-  "buyGoldAmount": "Comprar <1></1> $t(global:gold)",
-  "sellGoldAmount": "Vender <1></1> $t(global:gold)",
+  "buyGoldAmount": "Comprar <0></0> $t(global:gold)",
+  "sellGoldAmount": "Vender <0></0> $t(global:gold)",
   "includeExchangeFee": "* incluye la comisión de cambio",
   "available": "Disponible",
   "newBalance": "Saldo nuevo",
@@ -50,5 +50,6 @@
   "withdrawCeloReview": "Resúmen",
   "withdrawCeloTo": "Retirar en",
   "withdrawCeloAmount": "Cantidad (CELO)",
-  "withdrawScanQrTitle": "Escanear"
+  "withdrawScanQrTitle": "Escanear",
+  "tokenBalance": "Saldo {{token}}"
 }

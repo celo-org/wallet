@@ -7,7 +7,8 @@
     "operation": "Operação",
     "data": "Dados",
     "sign": "Assinar um payload de dados",
-    "signTransaction": "Assinar um Elo TX",
+    "signTransaction": "Assinar uma transação Celo",
+    "sendTransaction": "Enviar uma transação Celo",
     "decrypt": "Descriptografar um payload de dados",
     "accounts": "Leia seu endereço da conta {{appName}}",
     "details": "Mostrar detalhes",
@@ -17,6 +18,7 @@
   "description": {
     "sign": "Assinar pagamentos",
     "signTransaction": "Enviar fundos",
+    "sendTransaction": "Enviar fundos",
     "accounts": "Ler endereço",
     "decrypt": "Descriptografar dados",
     "computeSharedSecret": "Gerar um segredo"

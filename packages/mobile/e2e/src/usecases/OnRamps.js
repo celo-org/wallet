@@ -24,6 +24,9 @@ export default onRamps = () => {
       })
 
       it('Then Should Display Providers', async () => {
+        await waitFor(element(by.id('Provider/Moonpay')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Provider/Moonpay'))).toBeVisible()
         await expect(element(by.id('Provider/Simplex'))).toBeVisible()
         await expect(element(by.id('Provider/Xanpool'))).toBeVisible()
@@ -43,6 +46,9 @@ export default onRamps = () => {
       })
 
       it('Then Should Display Providers', async () => {
+        await waitFor(element(by.id('Provider/Moonpay')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Provider/Moonpay'))).toBeVisible()
         await expect(element(by.id('Provider/Simplex'))).toBeVisible()
         await expect(element(by.id('Provider/Xanpool'))).toBeVisible()
@@ -65,6 +71,9 @@ export default onRamps = () => {
       })
 
       it('Then Should Display Exchanges & Account Key', async () => {
+        await waitFor(element(by.id('Bittrex')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Bittrex'))).toBeVisible()
         await expect(element(by.id('CoinList Pro'))).toBeVisible()
         await expect(element(by.id('OKCoin'))).toBeVisible()
@@ -89,6 +98,9 @@ export default onRamps = () => {
       })
 
       it('Then Should Display Providers', async () => {
+        await waitFor(element(by.id('Provider/Simplex')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Provider/Simplex'))).toBeVisible()
         await expect(element(by.id('Provider/Moonpay'))).toBeVisible()
         await expect(element(by.id('Provider/Xanpool'))).toBeVisible()
@@ -113,6 +125,9 @@ export default onRamps = () => {
       })
 
       it('Then Should Display Providers', async () => {
+        await waitFor(element(by.id('Provider/Simplex')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Provider/Simplex'))).toBeVisible()
         await expect(element(by.id('Provider/Moonpay'))).toBeVisible()
         await expect(element(by.id('Provider/Xanpool'))).toBeVisible()
@@ -135,6 +150,9 @@ export default onRamps = () => {
       })
 
       it('Then Should Display Exchanges & Account Key', async () => {
+        await waitFor(element(by.id('Binance')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Binance'))).toBeVisible()
         await expect(element(by.id('Bittrex'))).toBeVisible()
         await expect(element(by.id('Coinbase (CELO as CGLD)'))).toBeVisible()

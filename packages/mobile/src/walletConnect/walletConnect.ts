@@ -24,6 +24,7 @@ export function* handleWalletConnectDeepLink(deepLink: string) {
     link = deepLink.substring(UNIVERSAL_LINK_PREFIX.length)
   }
 
+  link = decodeURIComponent(link)
   // connection request
   if (link.includes('?')) {
     yield call(initialiseWalletConnect, link)
@@ -34,6 +35,6 @@ export function* handleWalletConnectDeepLink(deepLink: string) {
 
 export function isWalletConnectDeepLink(deepLink: string) {
   return [WC_PREFIX, DEEPLINK_PREFIX, UNIVERSAL_LINK_PREFIX].some((prefix) =>
-    deepLink.startsWith(prefix)
+    decodeURIComponent(deepLink).startsWith(prefix)
   )
 }

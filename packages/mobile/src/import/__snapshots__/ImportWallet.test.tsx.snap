@@ -403,9 +403,8 @@ exports[`ImportWallet renders correctly and is disabled with no text 1`] = `
                   testID="undefined/value"
                 >
                   
-                  &lt;
                   $
-                  0.001
+                  0.00
                 </Text>
               </Text>
               <Text

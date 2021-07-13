@@ -1,7 +1,7 @@
 import Expandable from '@celo/react-components/components/Expandable'
 import Touchable from '@celo/react-components/components/Touchable'
 import colors from '@celo/react-components/styles/colors'
-import fontStyles, { fontFamily } from '@celo/react-components/styles/fonts'
+import fontStyles from '@celo/react-components/styles/fonts'
 import { getDisplayNumberInternational } from '@celo/utils/lib/phoneNumbers'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -76,7 +76,6 @@ export default function UserSection({
           <View style={styles.accountBox}>
             <Text style={styles.accountLabel}>{t('accountNumberLabel')}</Text>
             <AccountNumber address={address} location={Screens.TransactionReview} />
-            <Text style={styles.link}>{t('accountScreen10:tapToCopy')}</Text>
           </View>
         </View>
       )}
@@ -126,11 +125,5 @@ const styles = StyleSheet.create({
   accountLabel: {
     ...fontStyles.label,
     color: colors.gray5,
-  },
-  link: {
-    ...fontStyles.label,
-    textDecorationLine: 'underline',
-    color: colors.gray4,
-    fontFamily,
   },
 })

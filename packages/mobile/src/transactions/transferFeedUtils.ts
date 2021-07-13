@@ -77,7 +77,7 @@ function getRecipient(
       : recentTxRecipientsCache[phoneNumber]
 
     if (recipient) {
-      return recipient
+      return { ...recipient }
     } else {
       recipient = { e164PhoneNumber: phoneNumber }
       return recipient

@@ -1,15 +1,7 @@
 import { DataSource, DataSourceConfig } from 'apollo-datasource'
 import BigNumber from 'bignumber.js'
 import { CurrencyConversionArgs, MoneyAmount } from '../schema'
-import {
-  CGLD,
-  CUSD,
-  stablePairs,
-  supportedCurrencies,
-  supportedPairs,
-  supportedStableTokens,
-  USD,
-} from './consts'
+import { CGLD, CUSD, stablePairs, supportedPairs, supportedStableTokens, USD } from './consts'
 import ExchangeRateAPI from './ExchangeRateAPI'
 import GoldExchangeRateAPI from './GoldExchangeRateAPI'
 
@@ -60,9 +52,8 @@ export default class CurrencyConversionAPI<TContext = any> extends DataSource {
     } else if (fromCode === CGLD || toCode === CGLD) {
       // cGLD -> X (where X !== celoStableToken)
       if (fromCode === CGLD && !this.enumContains(supportedStableTokens, toCode.toUpperCase())) {
-        if (this.enumContains(supportedCurrencies, toCode) && toCode !== USD) {
-          return [CGLD, this.getStableToken(toCode), toCode]
-        }
+        // TODO, we could optimize this and use the cGLD/cEUR rate for instance
+        // but it would only be supported from the date when we started storing it
         return [CGLD, CUSD, ...insertIf(toCode !== USD, USD), toCode]
       }
       // Currency -> cGLD (where X !== celoStableToken)
@@ -70,9 +61,8 @@ export default class CurrencyConversionAPI<TContext = any> extends DataSource {
         !this.enumContains(supportedStableTokens, fromCode.toUpperCase()) &&
         toCode === CGLD
       ) {
-        if (this.enumContains(supportedCurrencies, fromCode) && fromCode !== USD) {
-          return [fromCode, this.getStableToken(fromCode), CGLD]
-        }
+        // TODO, we could optimize this and use the cEUR/cGLD rate for instance
+        // but it would only be supported from the date when we started storing it
         return [fromCode, ...insertIf(fromCode !== USD, USD), CUSD, CGLD]
       }
     } else {
@@ -99,10 +89,6 @@ export default class CurrencyConversionAPI<TContext = any> extends DataSource {
 
   private enumContains(x: any, code: string) {
     return Object.values(x).includes(code)
-  }
-
-  private getStableToken(code: string) {
-    return 'c' + code
   }
 
   private getCurrency(code: string) {

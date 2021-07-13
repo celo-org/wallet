@@ -4,6 +4,7 @@
   "dollarsSent": "Dólares Enviados",
   "to": "Para",
   "send": "Enviar",
+  "sendToken": "Enviar {{token}}",
   "payment": "Pagamento",
   "sendOrRequest": "Enviar ou solicitar",
   "recent": "Recente",
@@ -18,7 +19,7 @@
   "sentTo": "Enviar para",
   "withdrawnTo": "Sacado para",
   "receivedFrom": "Recebido de",
-  "accountNumberLabel": "Número da conta",
+  "accountNumberLabel": "Número da Conta",
   "commentLabel": "Mensagem",
   "amountSent": "Quantia enviada",
   "amountCeloWithdrawn": "Quantia (CELO)",
@@ -72,6 +73,8 @@
   "newAccountBalance": "Novo saldo da conta: ",
   "estimatingFee": "Estimando a taxa ",
   "estimatedFee": "Taxa estimada: ",
+  "selectBalance": "Selecionar Saldo",
+  "stableBalance": "Saldo de {{token}}",
   "verificationCta": {
     "header": "Enviando para um amigo?",
     "body": "Confirme seu celular e sincronize seus contatos para enviar rapidamente para seus amigos.",
@@ -127,5 +130,10 @@
     "feeLabel": "Taxa única de criptografia",
     "feeModalHeader": "Taxa única de criptografia",
     "feeModalBody": "A criptografia ajuda a manter a privacidade de seus dados confidenciais. Uma pequena taxa única é adicionada à sua primeira transação para configurar a criptografia. Isso garante que seus comentários serão enviados de forma segura e privada."
+  },
+  "sendToAddressWarning": {
+    "title": "Enviando para um endereço",
+    "body": "Certifique-se de que o endereço suporta cUSD. Os fundos enviados para endereços inválidos podem não ser recuperáveis.\n\nVocê também pode enviar um pagamento de teste pequeno primeiro.",
+    "toggle": "Perguntar sempre"
   }
 }

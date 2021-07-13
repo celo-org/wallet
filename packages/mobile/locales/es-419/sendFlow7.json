@@ -4,6 +4,7 @@
   "dollarsSent": "Dólares Enviados",
   "to": "Para",
   "send": "Enviar",
+  "sendToken": "Enviar {{token}}",
   "payment": "Pago",
   "sendOrRequest": "Enviar o solicitar",
   "recent": "Recientes",
@@ -72,6 +73,8 @@
   "newAccountBalance": "Nuevo saldo de cuenta: ",
   "estimatingFee": "Estimando tarifa ",
   "estimatedFee": "Tarifa estimada: ",
+  "selectBalance": "Seleccionar saldo",
+  "stableBalance": "Saldo {{token}}",
   "verificationCta": {
     "header": "¿Enviar a un amigo?",
     "body": "Confirma tu celular y sincroniza tus contactos para poder enviar dinero rápidamente a tus amigos.",
@@ -127,5 +130,10 @@
     "feeLabel": "Tarifa de Cifrado Unica",
     "feeModalHeader": "Tarifa de Cifrado Unica",
     "feeModalBody": "El cifrado ayuda a mantener la privacidad de tus datos confidenciales. Se agrega una pequeña tarifa única a tu primera transacción para configurar el cifrado. Esto garantiza que tus comentarios se envíen de forma segura y privada."
+  },
+  "sendToAddressWarning": {
+    "title": "Enviar a una dirección",
+    "body": "Asegúrate de que la dirección sea compatible con cUSD. Es posible que no puedas recuperar fondos enviados a direcciones no válidas.\n\nTambién puedes hacer un pequeño pago de prueba primero.",
+    "toggle": "Preguntar cada vez"
   }
 }

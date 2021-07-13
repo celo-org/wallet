@@ -110,7 +110,7 @@ runTest() {
     --take-screenshots=failing \
     --record-logs=failing \
     --loglevel info \
-    --debug-synchronization 5000 \
+    --debug-synchronization 10000 \
     --workers $WORKERS \
     --retries $RETRIES \
     --headless \

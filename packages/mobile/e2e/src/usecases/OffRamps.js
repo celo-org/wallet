@@ -57,6 +57,9 @@ export default offRamps = () => {
       })
 
       it('Then Should Display Exchanges & Account Key', async () => {
+        await waitFor(element(by.id('Bittrex')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Bittrex'))).toBeVisible()
         await expect(element(by.id('CoinList Pro'))).toBeVisible()
         await expect(element(by.id('OKCoin'))).toBeVisible()
@@ -100,6 +103,9 @@ export default offRamps = () => {
       })
 
       it('Then Should Display Exchanges & Account Key', async () => {
+        await waitFor(element(by.id('Binance')))
+          .toBeVisible()
+          .withTimeout(20000)
         await expect(element(by.id('Binance'))).toBeVisible()
         await expect(element(by.id('Bittrex'))).toBeVisible()
         await expect(element(by.id('Coinbase (CELO as CGLD)'))).toBeVisible()

@@ -30,7 +30,7 @@
   "pincodeSet": {
     "create": "Criar um PIN",
     "createNew": "Criar um novo PIN",
-    "verify": "Digite seu PIN novamente para confirmar",
+    "verify": "Insira seu PIN novamente para confirmar",
     "changePIN": "Alterar PIN",
     "pinsDontMatch": "Os PINs não coincidem",
     "invalidPin": "Use um PIN mais forte"
@@ -90,9 +90,7 @@
     "codePlaceholderWithCodeInClipboard": "Ótimo! Cole aqui",
     "resendMessages": "Reenviar última mensagem",
     "resendMessages_plural": "Reenviar {{count}} mensagens",
-    "resendMessages_all": "Reenviar todas as mensagens",
-    "sendingMessages": "Enviar {{count}} mensagem",
-    "sendingMessages_plural": "Enviar {{count}} mensagens"
+    "resendMessages_all": "Reenviar todas as mensagens"
   },
   "verificationInputHelpDialog": {
     "title": "Ajuda",

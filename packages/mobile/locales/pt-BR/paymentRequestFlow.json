@@ -13,5 +13,6 @@
   "requestUnavailableNoNumberBody": "Seu contato não tem uma conta ou ainda não a confirmou. As solicitações só podem ser enviadas para números confirmados.",
   "requesting": "Solicitando",
   "request": "Solicitar",
+  "requestToken": "Solicitar {{token}}",
   "requestSent": "Solicitação enviada"
 }

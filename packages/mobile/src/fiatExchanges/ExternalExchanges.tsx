@@ -1,6 +1,6 @@
 import ListItem from '@celo/react-components/components/ListItem'
 import colors from '@celo/react-components/styles/colors'
-import fontStyles, { fontFamily } from '@celo/react-components/styles/fonts'
+import fontStyles from '@celo/react-components/styles/fonts'
 import variables from '@celo/react-components/styles/variables'
 import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
@@ -71,7 +71,6 @@ function ExternalExchanges({ route }: Props) {
         <View testID="accountBox" style={styles.accountBox}>
           <Text style={styles.accountLabel}>{t('sendFlow7:accountNumberLabel')}</Text>
           <AccountNumber address={account || ''} location={Screens.ExternalExchanges} />
-          <Text style={styles.link}>{t('accountScreen10:tapToCopy')}</Text>
         </View>
         <View style={styles.providersContainer}>
           {providers.map((provider, idx) => {
@@ -110,12 +109,6 @@ const styles = StyleSheet.create({
   accountLabel: {
     ...fontStyles.label,
     color: colors.gray5,
-  },
-  link: {
-    ...fontStyles.label,
-    textDecorationLine: 'underline',
-    color: colors.gray4,
-    fontFamily,
   },
   providerListItem: {
     flexDirection: 'row',

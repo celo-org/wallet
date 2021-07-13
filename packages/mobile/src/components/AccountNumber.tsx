@@ -1,5 +1,5 @@
 import colors from '@celo/react-components/styles/colors'
-import fontStyles from '@celo/react-components/styles/fonts'
+import fontStyles, { fontFamily } from '@celo/react-components/styles/fonts'
 import { getAddressChunks } from '@celo/utils/lib/address'
 import Clipboard from '@react-native-community/clipboard'
 import React from 'react'
@@ -52,6 +52,7 @@ export default function AccountNumber({ address, touchDisabled, location }: Prop
       testID="CopyAddressToClipboard"
     >
       <Text style={styles.text}>{addressString}</Text>
+      <Text style={styles.link}>{t('tapToCopy')}</Text>
     </TouchableOpacity>
   )
 }
@@ -66,10 +67,10 @@ const styles = StyleSheet.create({
     color: colors.gray4,
     marginVertical: 8,
   },
-  miniChunk: {
-    width: 23,
-  },
-  chunk: {
-    width: 40,
+  link: {
+    ...fontStyles.label,
+    textDecorationLine: 'underline',
+    color: colors.gray4,
+    fontFamily,
   },
 })

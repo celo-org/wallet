@@ -339,6 +339,7 @@ export class ExchangeTradeScreen extends React.Component<Props, State> {
   updateTransferCurrency = (currency: Currency) => this.setState({ transferCurrency: currency })
 
   render() {
+    const { buyCelo } = this.props.route.params
     const { t, exchangeRates } = this.props
     const { transferCurrency, exchangeRateInfoDialogVisible } = this.state
 
@@ -348,7 +349,7 @@ export class ExchangeTradeScreen extends React.Component<Props, State> {
       <SafeAreaView style={styles.container} edges={['bottom', 'top']}>
         <ExchangeTradeScreenHeader
           currency={transferCurrency}
-          makerToken={this.getMakerToken()}
+          isCeloPurchase={buyCelo}
           onChangeCurrency={this.updateTransferCurrency}
         />
         <DisconnectBanner />

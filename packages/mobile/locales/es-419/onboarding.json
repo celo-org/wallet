@@ -90,9 +90,7 @@
     "codePlaceholderWithCodeInClipboard": "¡Excelente! Péguelo aquí",
     "resendMessages": "Reenviar el último mensaje",
     "resendMessages_plural": "Reenviar {{count}} mensajes",
-    "resendMessages_all": "Reenviar todos los mensajes",
-    "sendingMessages": "Enviando {{count}} mensaje",
-    "sendingMessages_plural": "Enviando {{count}} mensajes"
+    "resendMessages_all": "Reenviar todos los mensajes"
   },
   "verificationInputHelpDialog": {
     "title": "Ayuda",

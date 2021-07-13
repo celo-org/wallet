@@ -1,6 +1,6 @@
 {
   "title": "Uma nova forma para ganhar",
-  "summary": "Ao iniciar no dia {{date}}, você ganhará {{percent}}% no seu saldo em Usd anualmente.",
+  "summary": "Começando agora, você ganhará até {{percent}}% anualmente no seu saldo em cUSD.",
   "earnWeekly": {
     "header": "Ganhe semanalmente",
     "text": "Envie ou gaste como de costume, você ganhará com o saldo restante."

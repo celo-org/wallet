@@ -89,7 +89,9 @@ describe('App saga', () => {
   })
 
   describe('WalletConnect deeplinks', () => {
-    const connectionString = 'wc:1234@1?bridge=https://example.com&key=0x1234'
+    const connectionString = encodeURIComponent(
+      'wc:79a02f869d0f921e435a5e0643304548ebfa4a0430f9c66fe8b1a9254db7ef77@2?controller=false&publicKey=f661b0a9316a4ce0b6892bdce42bea0f45037f2c1bee9e118a3a4bc868a32a39&relay={"protocol":"waku"}'
+    )
     const connectionLinks = [
       {
         name: 'Android',
@@ -109,7 +111,7 @@ describe('App saga', () => {
       it(`handles ${name} connection links correctly`, async () => {
         await expectSaga(handleDeepLink, openDeepLink(link))
           .call(handleWalletConnectDeepLink, link)
-          .call(initialiseWalletConnect, connectionString)
+          .call(initialiseWalletConnect, decodeURIComponent(connectionString))
           .run()
       })
     }
@@ -126,7 +128,7 @@ describe('App saga', () => {
       it(`handles ${name} action links correctly`, async () => {
         await expectSaga(handleDeepLink, openDeepLink(link))
           .call(handleWalletConnectDeepLink, link)
-          .not.call(initialiseWalletConnect, connectionString)
+          .not.call(initialiseWalletConnect)
           .run()
       })
     }

@@ -2,7 +2,7 @@ import Touchable from '@celo/react-components/components/Touchable'
 import DownArrowIcon from '@celo/react-components/icons/DownArrowIcon'
 import colors from '@celo/react-components/styles/colors'
 import React, { useMemo, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Keyboard, StyleSheet, Text, View } from 'react-native'
 import { CeloExchangeEvents } from 'src/analytics/Events'
 import CancelButton from 'src/components/CancelButton'
 import CustomHeader from 'src/components/header/CustomHeader'
@@ -17,11 +17,11 @@ import { Currency, STABLE_CURRENCIES } from 'src/utils/currencies'
 
 interface Props {
   currency: Currency
-  makerToken: Currency | null
+  isCeloPurchase: boolean
   onChangeCurrency: (currency: Currency) => void
 }
 
-function ExchangeTradeScreenHeader({ currency, makerToken, onChangeCurrency }: Props) {
+function ExchangeTradeScreenHeader({ currency, isCeloPurchase, onChangeCurrency }: Props) {
   const [showingTokenPicker, setShowTokenPicker] = useState(false)
 
   const onCurrencySelected = (currency: Currency) => {
@@ -31,7 +31,6 @@ function ExchangeTradeScreenHeader({ currency, makerToken, onChangeCurrency }: P
 
   const closeCurrencyPicker = () => setShowTokenPicker(false)
 
-  const isCeloPurchase = makerToken !== Currency.Celo
   const balances = useSelector(balancesSelector)
   const exchangeRates = useSelector(localCurrencyExchangeRatesSelector)
 
@@ -43,9 +42,9 @@ function ExchangeTradeScreenHeader({ currency, makerToken, onChangeCurrency }: P
 
     let titleText
     let title
-    const singleTokenAvailable = currenciesWithBalance < 2
-    if (singleTokenAvailable) {
-      title = isCeloPurchase ? i18n.t('exchangeFlow9:buyGold') : i18n.t('exchangeFlow9:sellGold')
+    const tokenPickerEnabled = currenciesWithBalance >= 2 || !isCeloPurchase
+    if (!tokenPickerEnabled) {
+      title = i18n.t('exchangeFlow9:buyGold')
     } else {
       titleText = i18n.t('exchangeFlow9:tokenBalance', { token: currency })
       title = (
@@ -56,8 +55,13 @@ function ExchangeTradeScreenHeader({ currency, makerToken, onChangeCurrency }: P
       )
     }
 
+    const showTokenPicker = () => {
+      setShowTokenPicker(true)
+      Keyboard.dismiss()
+    }
+
     return (
-      <Touchable disabled={singleTokenAvailable} onPress={() => setShowTokenPicker(true)}>
+      <Touchable disabled={!tokenPickerEnabled} onPress={showTokenPicker}>
         <HeaderTitleWithBalance title={title} token={currency} switchTitleAndSubtitle={true} />
       </Touchable>
     )
