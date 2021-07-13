@@ -516,6 +516,7 @@ exports[`ExchangeTradeScreen renders correctly 1`] = `
       >
         <Text
           accessibilityLabel="continue"
+          maxFontSizeMultiplier={1}
           style={
             Object {
               "color": "#9CA4A9",

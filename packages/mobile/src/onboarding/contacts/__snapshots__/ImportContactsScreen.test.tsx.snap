@@ -142,6 +142,7 @@ exports[`ImportContactsScreen renders correctly 1`] = `
               }
             >
               <Text
+                maxFontSizeMultiplier={1}
                 style={
                   Object {
                     "color": "#0768AE",

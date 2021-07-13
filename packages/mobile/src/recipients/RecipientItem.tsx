@@ -45,9 +45,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: 64,
+    minHeight: 64,
     paddingHorizontal: variables.contentPadding,
-    flex: 1,
+    flexWrap: 'wrap',
   },
   avatar: {
     marginRight: 12,

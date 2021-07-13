@@ -553,6 +553,7 @@ exports[`VerificationEducationScreen shows the \`continue\` button when the user
             testID="VerificationEducationContinue"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#0768AE",
@@ -1597,6 +1598,7 @@ exports[`VerificationEducationScreen shows the \`continue\` button when the user
             testID="VerificationEducationContinue"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#0768AE",
@@ -2641,6 +2643,7 @@ exports[`VerificationEducationScreen shows the \`skip\` button when already veri
             testID="VerificationEducationSkip"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#0768AE",
@@ -3685,6 +3688,7 @@ exports[`VerificationEducationScreen shows the \`skip\` button when user is not 
             testID="VerificationEducationSkip"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#0768AE",

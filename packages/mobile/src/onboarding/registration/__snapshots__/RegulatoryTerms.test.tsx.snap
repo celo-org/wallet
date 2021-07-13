@@ -209,6 +209,7 @@ exports[`RegulatoryTermsScreen renders correctly 1`] = `
         testID="AcceptTermsButton"
       >
         <Text
+          maxFontSizeMultiplier={1}
           style={
             Object {
               "color": "#0768AE",

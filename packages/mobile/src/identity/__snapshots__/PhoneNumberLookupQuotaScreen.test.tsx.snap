@@ -265,6 +265,7 @@ exports[`PhoneNumberLookupQuotaScreen renders correctly 1`] = `
           testID="QuotaBuyButton"
         >
           <Text
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#FFFFFF",
@@ -333,6 +334,7 @@ exports[`PhoneNumberLookupQuotaScreen renders correctly 1`] = `
           testID="QuotaSkipButton"
         >
           <Text
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#2E3338",

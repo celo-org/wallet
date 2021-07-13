@@ -54,6 +54,7 @@ exports[`renders correctly when connected 1`] = `
       }
     >
       <Text
+        maxFontSizeMultiplier={1}
         style={
           Object {
             "color": "#FFFFFF",
@@ -124,6 +125,7 @@ exports[`renders correctly when disconnected 1`] = `
       }
     >
       <Text
+        maxFontSizeMultiplier={1}
         style={
           Object {
             "color": "#FFFFFF",

@@ -210,6 +210,7 @@ exports[`ImportWallet renders correctly and is disabled with no text 1`] = `
             testID="ImportWalletButton"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#0768AE",

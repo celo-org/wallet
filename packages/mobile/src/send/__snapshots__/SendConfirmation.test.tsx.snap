@@ -1110,6 +1110,7 @@ exports[`SendConfirmation renders correctly 1`] = `
           >
             <Text
               accessibilityLabel="global:send"
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#FFFFFF",

@@ -1866,6 +1866,7 @@ exports[`SimplexScreen renders correctly 2`] = `
           }
         >
           <Text
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#FFFFFF",

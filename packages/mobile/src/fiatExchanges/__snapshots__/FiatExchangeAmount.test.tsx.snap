@@ -661,6 +661,7 @@ exports[`FiatExchangeAmount cashIn renders correctly 1`] = `
       >
         <Text
           accessibilityLabel="global:next"
+          maxFontSizeMultiplier={1}
           style={
             Object {
               "color": "#FFFFFF",

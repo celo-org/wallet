@@ -221,6 +221,7 @@ exports[`Contact renders correctly 1`] = `
             testID="SubmitContactForm"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#FFFFFF",

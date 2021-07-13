@@ -595,6 +595,7 @@ exports[`WithdrawCeloReviewScreen renders correctly 1`] = `
         testID="ConfirmWithdrawButton"
       >
         <Text
+          maxFontSizeMultiplier={1}
           style={
             Object {
               "color": "#FFFFFF",

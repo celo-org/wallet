@@ -76,6 +76,7 @@ export default React.memo(function Button(props: ButtonProps) {
             <ActivityIndicator size="small" color={loadingColor} />
           ) : (
             <Text
+              maxFontSizeMultiplier={1}
               accessibilityLabel={accessibilityLabel}
               style={{ ...fontStyles.regular600, color: textColor }}
             >

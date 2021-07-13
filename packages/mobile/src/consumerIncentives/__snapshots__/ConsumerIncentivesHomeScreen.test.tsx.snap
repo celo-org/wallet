@@ -409,6 +409,7 @@ exports[`ConsumerIncentivesHomeScreen renders correctly 1`] = `
           testID="ConsumerIncentives/CTA"
         >
           <Text
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#FFFFFF",

@@ -592,6 +592,7 @@ exports[`ExchangeReview renders correctly 1`] = `
         testID="ConfirmExchange"
       >
         <Text
+          maxFontSizeMultiplier={1}
           style={
             Object {
               "color": "#FFFFFF",

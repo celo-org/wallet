@@ -281,6 +281,7 @@ exports[`renders correctly with backup not completed 1`] = `
         testID="backupKeyContinue"
       >
         <Text
+          maxFontSizeMultiplier={1}
           style={
             Object {
               "color": "#9CA4A9",

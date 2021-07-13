@@ -685,6 +685,7 @@ exports[`FiatExchangeOptions renders correctly 1`] = `
           testID="GoToProviderButton"
         >
           <Text
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#FFFFFF",
@@ -1596,6 +1597,7 @@ exports[`FiatExchangeOptions renders correctly 2`] = `
           testID="GoToProviderButton"
         >
           <Text
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#FFFFFF",

@@ -130,6 +130,7 @@ exports[`CashinInSuccess renders correctly with a provider 1`] = `
         >
           <Text
             accessibilityLabel="global:continue"
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#FFFFFF",
@@ -278,6 +279,7 @@ exports[`CashinInSuccess renders correctly without a provider 1`] = `
         >
           <Text
             accessibilityLabel="global:continue"
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#FFFFFF",

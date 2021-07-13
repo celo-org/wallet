@@ -110,6 +110,7 @@ exports[`RaiseLimitScreen renders correctly 1`] = `
         testID="RaiseLimitButton"
       >
         <Text
+          maxFontSizeMultiplier={1}
           style={
             Object {
               "color": "#FFFFFF",

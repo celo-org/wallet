@@ -151,6 +151,7 @@ exports[`BackupForceScreen renders correctly 1`] = `
             testID="SetUpAccountKey"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#FFFFFF",

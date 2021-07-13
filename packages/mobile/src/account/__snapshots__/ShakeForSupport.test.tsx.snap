@@ -234,6 +234,7 @@ exports[`ShakeForSupport does not render when App not active 1`] = `
             testID="ContactSupportFromShake"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#FFFFFF",
@@ -487,6 +488,7 @@ exports[`ShakeForSupport renders correctly when App is active 1`] = `
             testID="ContactSupportFromShake"
           >
             <Text
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#FFFFFF",

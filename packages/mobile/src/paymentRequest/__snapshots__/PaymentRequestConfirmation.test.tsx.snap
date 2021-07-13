@@ -344,6 +344,7 @@ exports[`PaymentRequestConfirmation renders correctly for request payment confir
           >
             <Text
               accessibilityLabel="request"
+              maxFontSizeMultiplier={1}
               style={
                 Object {
                   "color": "#FFFFFF",

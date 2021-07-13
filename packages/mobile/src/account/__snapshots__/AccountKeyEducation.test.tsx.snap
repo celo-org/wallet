@@ -406,6 +406,7 @@ exports[`AccountKeyEducation renders correctly 1`] = `
           testID="Education/progressButton"
         >
           <Text
+            maxFontSizeMultiplier={1}
             style={
               Object {
                 "color": "#2E3338",
