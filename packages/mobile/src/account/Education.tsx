@@ -8,6 +8,7 @@ import * as React from 'react'
 import {
   Image,
   ImageSourcePropType,
+  ScrollView,
   StyleProp,
   StyleSheet,
   Text,
@@ -184,7 +185,11 @@ export default class Education extends React.Component<Props, State> {
           >
             {stepInfo.map((step: EducationStep, i: number) => {
               return (
-                <View style={styles.swipedContent} key={i}>
+                <ScrollView
+                  contentContainerStyle={styles.contentContainer}
+                  style={styles.swipedContent}
+                  key={i}
+                >
                   {step.isTopTitle && <Text style={styles.headingTop}>{step.title}</Text>}
                   <View style={styles.swipedContentInner}>
                     {step.image && (
@@ -193,7 +198,7 @@ export default class Education extends React.Component<Props, State> {
                     {!step.isTopTitle && <Text style={styles.heading}>{step.title}</Text>}
                     {!!step.text && <Text style={styles.bodyText}>{step.text}</Text>}
                   </View>
-                </View>
+                </ScrollView>
               )
             })}
           </Swiper>
@@ -213,8 +218,14 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
   },
+  contentContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexGrow: 1,
+  },
   container: {
     flex: 1,
+    flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 24,
@@ -232,14 +243,17 @@ const styles = StyleSheet.create({
     ...fontStyles.regular,
     textAlign: 'center',
     paddingTop: 16,
+    marginBottom: 24,
   },
   bodyImage: {
     alignSelf: 'center',
+    marginBottom: 24,
   },
   swipedContent: {
     flex: 1,
     marginBottom: 24,
     paddingHorizontal: 24,
+    overflow: 'scroll',
   },
   swipedContentInner: {
     flex: 1,

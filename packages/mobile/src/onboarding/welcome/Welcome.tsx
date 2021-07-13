@@ -4,7 +4,7 @@ import fontStyles from '@celo/react-components/styles/fonts'
 import { Spacing } from '@celo/react-components/styles/styles'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useDispatch } from 'react-redux'
 import { chooseCreateAccount, chooseRestoreAccount } from 'src/account/actions'
@@ -48,10 +48,10 @@ export default function Welcome() {
   return (
     <SafeAreaView style={styles.container}>
       <Image source={welcomeBackground} style={styles.backgroundImage} />
-      <View style={styles.titleContainer}>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
         <Logo type={LogoTypes.COLOR} height={64} />
         <Text style={styles.title}>{t('welcome.title')}</Text>
-      </View>
+      </ScrollView>
       <View style={{ marginBottom: Math.max(0, 40 - insets.bottom) }}>
         <Button
           onPress={onPressCreateAccount}
@@ -79,6 +79,10 @@ Welcome.navigationOptions = {
 }
 
 const styles = StyleSheet.create({
+  contentContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
     backgroundColor: colors.onboardingBackground,
@@ -88,10 +92,6 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     width: undefined,
     height: undefined,
-  },
-  titleContainer: {
-    flex: 1,
-    justifyContent: 'center',
   },
   title: {
     ...fontStyles.h1,

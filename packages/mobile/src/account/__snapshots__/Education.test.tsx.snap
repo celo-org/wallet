@@ -81,6 +81,7 @@ exports[`Education renders correctly 1`] = `
       Object {
         "alignItems": "center",
         "flex": 1,
+        "flexWrap": "wrap",
         "justifyContent": "center",
         "paddingBottom": 24,
       }
@@ -111,53 +112,64 @@ exports[`Education renders correctly 1`] = `
       onIndexChanged={[Function]}
       removeClippedSubviews={false}
     >
-      <View
+      <RCTScrollView
+        contentContainerStyle={
+          Object {
+            "alignItems": "center",
+            "flexGrow": 1,
+            "justifyContent": "center",
+          }
+        }
         style={
           Object {
             "flex": 1,
             "marginBottom": 24,
+            "overflow": "scroll",
             "paddingHorizontal": 24,
           }
         }
       >
-        <View
-          style={
-            Object {
-              "flex": 1,
-              "justifyContent": "center",
-            }
-          }
-        >
-          <Text
+        <View>
+          <View
             style={
               Object {
-                "color": "#2E3338",
-                "fontFamily": "Jost-Medium",
-                "fontSize": 22,
-                "lineHeight": 28,
-                "marginTop": 24,
-                "textAlign": "center",
+                "flex": 1,
+                "justifyContent": "center",
               }
             }
           >
-            Step 1
-          </Text>
-          <Text
-            style={
-              Object {
-                "color": "#2E3338",
-                "fontFamily": "Inter-Regular",
-                "fontSize": 16,
-                "lineHeight": 22,
-                "paddingTop": 16,
-                "textAlign": "center",
+            <Text
+              style={
+                Object {
+                  "color": "#2E3338",
+                  "fontFamily": "Jost-Medium",
+                  "fontSize": 22,
+                  "lineHeight": 28,
+                  "marginTop": 24,
+                  "textAlign": "center",
+                }
               }
-            }
-          >
-            The Journey Begins
-          </Text>
+            >
+              Step 1
+            </Text>
+            <Text
+              style={
+                Object {
+                  "color": "#2E3338",
+                  "fontFamily": "Inter-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                  "marginBottom": 24,
+                  "paddingTop": 16,
+                  "textAlign": "center",
+                }
+              }
+            >
+              The Journey Begins
+            </Text>
+          </View>
         </View>
-      </View>
+      </RCTScrollView>
     </Swiper>
     <View
       style={
