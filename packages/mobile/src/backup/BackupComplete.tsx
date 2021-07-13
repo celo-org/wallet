@@ -26,6 +26,11 @@ const mapStateToProps = (state: RootState): StateProps => {
   }
 }
 
+/**
+ * Component shown to the user upon completion of the Account Key setup flow. Informs the user that
+ * they've successfully completed the backup process and automatically returns them to where they
+ * came from.
+ */
 class BackupComplete extends React.Component<Props> {
   static navigationOptions = { header: null }
 

@@ -15,6 +15,7 @@ import { hideAlert } from 'src/alert/actions'
 import { OnboardingEvents } from 'src/analytics/Events'
 import ValoraAnalytics from 'src/analytics/ValoraAnalytics'
 import {
+  countMnemonicWords,
   formatBackupPhraseOnEdit,
   formatBackupPhraseOnSubmit,
   getStoredMnemonic,
@@ -71,6 +72,10 @@ const mapStateToProps = (state: RootState): StateProps => {
   }
 }
 
+/**
+ * Component shown to users when they are onboarding to the application through the import / recover
+ * wallet flow. Allows the user to input their mnemonic phrase to instantiate the account.
+ */
 export class ImportWallet extends React.Component<Props, State> {
   static navigationOptions = {
     ...nuxNavigationOptions,
@@ -130,9 +135,22 @@ export class ImportWallet extends React.Component<Props, State> {
   }
 
   setBackupPhrase = (input: string) => {
+    // Hide the alert banner if one is displayed.
     this.props.hideAlert()
+
+    const updatedPhrase = formatBackupPhraseOnEdit(input)
+
+    const currentWordCount = countMnemonicWords(this.state.backupPhrase)
+    const updatedWordCount = countMnemonicWords(updatedPhrase)
+    if (updatedWordCount !== currentWordCount) {
+      ValoraAnalytics.track(OnboardingEvents.wallet_import_phrase_updated, {
+        wordCount: updatedWordCount,
+        wordCountChange: updatedWordCount - currentWordCount,
+      })
+    }
+
     this.setState({
-      backupPhrase: formatBackupPhraseOnEdit(input),
+      backupPhrase: updatedPhrase,
     })
   }
 
@@ -145,7 +163,6 @@ export class ImportWallet extends React.Component<Props, State> {
     const useEmptyWallet = !!route.params?.showZeroBalanceModal
     Keyboard.dismiss()
     this.props.hideAlert()
-    ValoraAnalytics.track(OnboardingEvents.wallet_import_complete)
 
     const formattedPhrase = formatBackupPhraseOnSubmit(this.state.backupPhrase)
     this.setState({
@@ -153,6 +170,7 @@ export class ImportWallet extends React.Component<Props, State> {
     })
     navigation.setParams({ showZeroBalanceModal: false })
 
+    ValoraAnalytics.track(OnboardingEvents.wallet_import_submit, { useEmptyWallet })
     this.props.importBackupPhrase(formattedPhrase, useEmptyWallet)
   }
 
@@ -162,9 +180,9 @@ export class ImportWallet extends React.Component<Props, State> {
 
   onPressTryAnotherKey = () => {
     const { navigation } = this.props
-    this.setState({
-      backupPhrase: '',
-    })
+    // Return the user to the import screen without clearing out their key.
+    // It's much easier for a user to delete a phrase from the screen than reinput it if the phrase
+    // is only partially wrong, or the user accidentally hits the "Go back" button.
     ValoraAnalytics.track(OnboardingEvents.wallet_import_cancel)
     navigation.setParams({ clean: false, showZeroBalanceModal: false })
   }

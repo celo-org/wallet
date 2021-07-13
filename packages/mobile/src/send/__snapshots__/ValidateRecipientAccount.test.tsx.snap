@@ -47,7 +47,7 @@ exports[`ValidateRecipientAccount renders correctly when full validation require
                 }
               }
             >
-              confirmAccountNumber.body1Full
+              confirmAccountNumber.body1Full, {"displayName":"Jane Doe"}
             </Text>
             <Text
               style={
@@ -247,7 +247,7 @@ exports[`ValidateRecipientAccount renders correctly when full validation require
             }
           }
         >
-          confirmAccountNumber.help
+          confirmAccountNumber.help, {"displayName":"Jane Doe"}
         </Text>
       </View>
     </View>
@@ -674,7 +674,7 @@ exports[`ValidateRecipientAccount renders correctly when partial validation requ
                 }
               }
             >
-              confirmAccountNumber.bodyPartial
+              confirmAccountNumber.bodyPartial, {"displayName":"Jane Doe"}
             </Text>
             <Text
               style={
@@ -1053,7 +1053,7 @@ exports[`ValidateRecipientAccount renders correctly when partial validation requ
             }
           }
         >
-          confirmAccountNumber.help
+          confirmAccountNumber.help, {"displayName":"Jane Doe"}
         </Text>
       </View>
     </View>

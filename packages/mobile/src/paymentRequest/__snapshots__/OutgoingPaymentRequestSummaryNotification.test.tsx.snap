@@ -68,7 +68,7 @@ exports[`OutgoingPaymentRequestSummaryNotification renders a number when the add
             }
             testID="OutgoingPaymentRequestNotification/FAKE_ID_1/Title"
           >
-            outgoingPaymentRequestNotificationTitle
+            outgoingPaymentRequestNotificationTitle, {"name":"John Doe"}
           </Text>
           <Text
             numberOfLines={1}
@@ -330,7 +330,7 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for just on
             }
             testID="OutgoingPaymentRequestNotification/FAKE_ID_1/Title"
           >
-            outgoingPaymentRequestNotificationTitle
+            outgoingPaymentRequestNotificationTitle, {"name":"John Doe"}
           </Text>
           <Text
             numberOfLines={1}
@@ -599,7 +599,7 @@ exports[`OutgoingPaymentRequestSummaryNotification renders correctly for multipl
         }
         testID="undefined/Title"
       >
-        outgoingPaymentRequestsSummaryTitle
+        outgoingPaymentRequestsSummaryTitle, {"count":3}
       </Text>
       <Text
         numberOfLines={3}

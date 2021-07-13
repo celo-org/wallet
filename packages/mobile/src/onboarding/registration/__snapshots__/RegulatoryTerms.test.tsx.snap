@@ -145,7 +145,7 @@ exports[`RegulatoryTermsScreen renders correctly 1`] = `
           }
         }
       >
-        terms.goldDisclaimer
+        terms.goldDisclaimer, {"dailyLimitCUSD":1000}
       </Text>
     </View>
   </RCTScrollView>

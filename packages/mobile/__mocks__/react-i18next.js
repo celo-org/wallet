@@ -34,17 +34,12 @@ const renderNodes = (reactNodes) => {
   })
 }
 
-// This is useful to test that correct params were sent to i18n.
-// For example, in the TransferFeedItem tests we are checking that the title of the item matches a cached value.
-// Without this it's impossible to check if the used value is the cached one since it only prints the i18n key.
-const printParamInsteadOfKey = {
-  feedItemAddress: 'address',
-  feedItemSentTitle: 'displayName',
-  feedItemGoldReceived: 'displayName',
-}
+// Output the key and any params sent to the translation function.
 const translationFunction = (key, params) => {
-  const paramToPrint = printParamInsteadOfKey[key]
-  return paramToPrint ? params[paramToPrint] || key : key
+  if (typeof params !== 'object' || Object.keys(params).length === 0) {
+    return key
+  }
+  return [key, JSON.stringify(params)].join(', ')
 }
 
 const useMock = [translationFunction, {}]

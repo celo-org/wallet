@@ -68,7 +68,7 @@ exports[`IncomingPaymentRequestSummaryNotification renders a number when the add
             }
             testID="IncomingPaymentRequestNotification/FAKE_ID_1/Title"
           >
-            incomingPaymentRequestNotificationTitle
+            incomingPaymentRequestNotificationTitle, {}
           </Text>
           <Text
             numberOfLines={1}
@@ -320,7 +320,7 @@ exports[`IncomingPaymentRequestSummaryNotification renders correctly for just on
             }
             testID="IncomingPaymentRequestNotification/FAKE_ID_1/Title"
           >
-            incomingPaymentRequestNotificationTitle
+            incomingPaymentRequestNotificationTitle, {}
           </Text>
           <Text
             numberOfLines={1}
@@ -579,7 +579,7 @@ exports[`IncomingPaymentRequestSummaryNotification renders correctly for more th
         }
         testID="undefined/Title"
       >
-        incomingPaymentRequestsSummaryTitle
+        incomingPaymentRequestsSummaryTitle, {"count":3}
       </Text>
       <Text
         numberOfLines={3}

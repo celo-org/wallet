@@ -67,7 +67,7 @@ exports[`EscrowedPaymentReminderNotification renders correctly 1`] = `
           }
           testID="EscrowedPaymentListItem/Title"
         >
-          escrowPaymentNotificationTitle
+          escrowPaymentNotificationTitle, {"mobile":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}

@@ -71,7 +71,7 @@ describe('SimplexScreen', () => {
 
     expect(tree).toMatchSnapshot()
     mockFetch.mockResponseOnce(MOCK_SIMPLEX_PAYMENT_REQUEST_RESPONSE)
-    await waitForElement(() => tree.getByText('continueToProvider'))
+    await waitForElement(() => tree.getByText(/continueToProvider/))
     tree.rerender(
       <Provider store={mockStore}>
         <SimplexScreen {...mockScreenProps()} />

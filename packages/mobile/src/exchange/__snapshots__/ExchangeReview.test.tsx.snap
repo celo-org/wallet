@@ -51,7 +51,7 @@ exports[`ExchangeReview renders correctly 1`] = `
                 }
               }
             >
-              exchangeAmount
+              exchangeAmount, {"tokenName":"gold"}
             </Text>
             <Text
               numberOfLines={1}

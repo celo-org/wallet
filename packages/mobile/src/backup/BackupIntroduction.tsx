@@ -38,6 +38,11 @@ const mapStateToProps = (state: RootState): StateProps => {
   }
 }
 
+/**
+ * Component displayed to the user when entering account key flow from the settings menu or a
+ * notification. Displays content to the user depending on whether they have set up their account
+ * key backup already.
+ */
 class BackupIntroduction extends React.Component<Props> {
   onPressBackup = () => {
     ValoraAnalytics.track(OnboardingEvents.backup_start)
@@ -64,6 +69,10 @@ interface AccountKeyStartProps {
   onPrimaryPress: () => void
 }
 
+/**
+ * Component displayed to the user when entering account key flow prior to a successful completion.
+ * Introduces the user to the account key and invites them to set it up
+ */
 function AccountKeyIntro({ onPrimaryPress }: AccountKeyStartProps) {
   const { t } = useTranslation(Namespaces.backupKeyFlow6)
   return (
@@ -76,6 +85,11 @@ function AccountKeyIntro({ onPrimaryPress }: AccountKeyStartProps) {
   )
 }
 
+/**
+ * Component displayed to the user when entering the account key flow after having successfully set
+ * up their backup. Displays their account key and provides an option to learn more about the
+ * account key, which brings them to the account key education flow.
+ */
 function AccountKeyPostSetup() {
   const accountKey = useAccountKey()
 

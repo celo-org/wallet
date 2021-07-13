@@ -68,7 +68,7 @@ exports[`VerificationInputScreen renders correctly 1`] = `
             }
           }
         >
-          verificationInput.body
+          verificationInput.body, {"phoneNumber":"+1 415-555-6666"}
         </Text>
         <View>
           <View
@@ -160,7 +160,7 @@ exports[`VerificationInputScreen renders correctly 1`] = `
                       onBlur={[Function]}
                       onChangeText={[Function]}
                       onFocus={[Function]}
-                      placeholder="verificationInput.codePlaceholder1"
+                      placeholder="verificationInput.codePlaceholder1, {}"
                       rejectResponderTermination={true}
                       style={
                         Array [
@@ -394,7 +394,7 @@ exports[`VerificationInputScreen renders correctly 1`] = `
               ]
             }
           >
-            verificationInput.resendMessages_all
+            verificationInput.resendMessages_all, {"count":3}
           </Text>
         </View>
       </View>

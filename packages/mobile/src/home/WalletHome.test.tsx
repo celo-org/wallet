@@ -50,11 +50,11 @@ describe('Testnet banner', () => {
 
     expect(tree).toMatchSnapshot()
     expect(showMessageMock).toHaveBeenCalledWith(
-      'testnetAlert.1',
+      'testnetAlert.1, {"testnet":"Alfajores"}',
       5000,
       null,
       null,
-      'testnetAlert.0'
+      'testnetAlert.0, {"testnet":"Alfajores"}'
     )
   })
   it('Renders when disconnected', async () => {

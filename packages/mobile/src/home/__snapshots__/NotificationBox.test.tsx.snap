@@ -99,7 +99,7 @@ exports[`NotificationBox renders correctly for with all notifications 1`] = `
                 }
                 testID="undefined/Title"
               >
-                incomingPaymentRequestsSummaryTitle
+                incomingPaymentRequestsSummaryTitle, {"count":2}
               </Text>
               <Text
                 numberOfLines={3}

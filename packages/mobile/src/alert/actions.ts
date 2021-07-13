@@ -46,7 +46,7 @@ export const showMessage = (
 
 export const showError = (
   error: ErrorMessages,
-  dismissAfter?: number | null,
+  dismissAfter?: number | null | undefined,
   i18nOptions?: object
 ): ShowAlertAction => {
   ValoraAnalytics.track(AppEvents.error_displayed, { error })

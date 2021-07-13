@@ -33,7 +33,7 @@ exports[`RaiseLimitScreen renders correctly 1`] = `
       }
     }
   >
-    dailyLimitValue
+    dailyLimitValue, {"dailyLimit":1000}
   </Text>
   <Text
     style={

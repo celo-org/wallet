@@ -202,7 +202,7 @@ exports[`SimplexScreen renders correctly 1`] = `
                         }
                       }
                     >
-                      providerFeesDialog.body2
+                      providerFeesDialog.body2, {"providerName":"Simplex"}
                     </Text>
                   </Text>
                 </View>
@@ -568,7 +568,7 @@ exports[`SimplexScreen renders correctly 1`] = `
             ]
           }
         >
-          pricePer
+          pricePer, {"coin":"cUSD"}
         </Text>
         <Text
           style={
@@ -1141,7 +1141,7 @@ exports[`SimplexScreen renders correctly 2`] = `
                         }
                       }
                     >
-                      providerFeesDialog.body2
+                      providerFeesDialog.body2, {"providerName":"Simplex"}
                     </Text>
                   </Text>
                 </View>
@@ -1507,7 +1507,7 @@ exports[`SimplexScreen renders correctly 2`] = `
             ]
           }
         >
-          pricePer
+          pricePer, {"coin":"cUSD"}
         </Text>
         <Text
           style={
@@ -1875,7 +1875,7 @@ exports[`SimplexScreen renders correctly 2`] = `
               }
             }
           >
-            continueToProvider
+            continueToProvider, {"provider":"Simplex"}
           </Text>
         </View>
       </View>

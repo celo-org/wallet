@@ -113,7 +113,7 @@ exports[`IncomingPaymentRequestListScreen renders correctly with requests 1`] = 
                     }
                     testID="IncomingPaymentRequestNotification/7363bvby2ba8270273/Title"
                   >
-                    incomingPaymentRequestNotificationTitle
+                    incomingPaymentRequestNotificationTitle, {"name":"John Doe"}
                   </Text>
                   <Text
                     numberOfLines={1}
@@ -372,7 +372,7 @@ exports[`IncomingPaymentRequestListScreen renders correctly with requests 1`] = 
                     }
                     testID="IncomingPaymentRequestNotification/7363bvby2ba8270273/Title"
                   >
-                    incomingPaymentRequestNotificationTitle
+                    incomingPaymentRequestNotificationTitle, {"name":"John Doe"}
                   </Text>
                   <Text
                     numberOfLines={1}
@@ -631,7 +631,7 @@ exports[`IncomingPaymentRequestListScreen renders correctly with requests 1`] = 
                     }
                     testID="IncomingPaymentRequestNotification/7363bvby2ba8270273/Title"
                   >
-                    incomingPaymentRequestNotificationTitle
+                    incomingPaymentRequestNotificationTitle, {"name":"John Doe"}
                   </Text>
                   <Text
                     numberOfLines={1}

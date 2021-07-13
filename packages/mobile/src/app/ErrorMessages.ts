@@ -12,6 +12,7 @@ export enum ErrorMessages {
   INSUFFICIENT_BALANCE = 'insufficientBalance',
   INVALID_AMOUNT = 'invalidAmount',
   INVALID_BACKUP_PHRASE = 'backupKeyFlow6:invalidBackupPhrase',
+  INVALID_WORDS_IN_BACKUP_PHRASE = 'backupKeyFlow6:invalidWordsInBackupPhrase',
   IMPORT_BACKUP_FAILED = 'backupKeyFlow6:importBackupFailed',
   BACKUP_QUIZ_FAILED = 'backupKeyFlow6:backupQuizFailed',
   FAILED_FETCH_MNEMONIC = 'backupKeyFlow6:failedFetchMnemonic',

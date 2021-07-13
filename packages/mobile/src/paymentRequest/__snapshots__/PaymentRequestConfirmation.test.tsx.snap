@@ -168,7 +168,7 @@ exports[`PaymentRequestConfirmation renders correctly for request payment confir
               numberOfLines={5}
               onBlur={[Function]}
               onChangeText={[Function]}
-              placeholder="addDescription"
+              placeholder="addDescription, {}"
               placeholderTextColor="#1AB775"
               rejectResponderTermination={true}
               returnKeyType="done"

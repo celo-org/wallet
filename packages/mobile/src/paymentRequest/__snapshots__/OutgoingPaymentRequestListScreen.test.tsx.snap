@@ -113,7 +113,7 @@ exports[`OutgoingPaymentRequestListScreen renders correctly with requests 1`] = 
                     }
                     testID="OutgoingPaymentRequestNotification/7363bvby2ba8270273/Title"
                   >
-                    outgoingPaymentRequestNotificationTitle
+                    outgoingPaymentRequestNotificationTitle, {"name":"walletFlow5:feedItemAddress, {\\"address\\":\\"0x1528...b625\\"}"}
                   </Text>
                   <Text
                     numberOfLines={1}
@@ -362,7 +362,7 @@ exports[`OutgoingPaymentRequestListScreen renders correctly with requests 1`] = 
                     }
                     testID="OutgoingPaymentRequestNotification/7363bvby2ba8270273/Title"
                   >
-                    outgoingPaymentRequestNotificationTitle
+                    outgoingPaymentRequestNotificationTitle, {"name":"walletFlow5:feedItemAddress, {\\"address\\":\\"0x1528...b625\\"}"}
                   </Text>
                   <Text
                     numberOfLines={1}
@@ -611,7 +611,7 @@ exports[`OutgoingPaymentRequestListScreen renders correctly with requests 1`] = 
                     }
                     testID="OutgoingPaymentRequestNotification/7363bvby2ba8270273/Title"
                   >
-                    outgoingPaymentRequestNotificationTitle
+                    outgoingPaymentRequestNotificationTitle, {"name":"walletFlow5:feedItemAddress, {\\"address\\":\\"0x1528...b625\\"}"}
                   </Text>
                   <Text
                     numberOfLines={1}

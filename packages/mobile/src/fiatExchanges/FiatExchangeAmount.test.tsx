@@ -422,7 +422,13 @@ describe('FiatExchangeAmount cashOut', () => {
     fireEvent.changeText(tree.getByTestId('FiatExchangeInput'), '1001')
     fireEvent.press(tree.getByTestId('FiatExchangeNextButton'))
     expect(storeWithUSD.getActions()).toEqual(
-      expect.arrayContaining([showError(ErrorMessages.CASH_OUT_LIMIT_EXCEEDED)])
+      expect.arrayContaining([
+        showError(ErrorMessages.CASH_OUT_LIMIT_EXCEEDED, undefined, {
+          ns: 'global',
+          balance: '1000.00',
+          currency: 'USD',
+        }),
+      ])
     )
   })
 
@@ -436,7 +442,13 @@ describe('FiatExchangeAmount cashOut', () => {
     fireEvent.changeText(tree.getByTestId('FiatExchangeInput'), '75000')
     fireEvent.press(tree.getByTestId('FiatExchangeNextButton'))
     expect(storeWithPHP.getActions()).toEqual(
-      expect.arrayContaining([showError(ErrorMessages.CASH_OUT_LIMIT_EXCEEDED)])
+      expect.arrayContaining([
+        showError(ErrorMessages.CASH_OUT_LIMIT_EXCEEDED, undefined, {
+          ns: 'global',
+          balance: '50000.00',
+          currency: 'PHP',
+        }),
+      ])
     )
   })
 

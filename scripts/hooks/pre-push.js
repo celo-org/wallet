@@ -21,8 +21,8 @@ function mergeBaseFor(refA, refB) {
 function getCommitRange(change, remoteName) {
   if (change.remoteSHA === '0000000000000000000000000000000000000000') {
     // pushing a new branch
-    // => commit range = changes from master
-    const fromSHA = mergeBaseFor(`${remoteName}/master`, change.localSHA)
+    // => commit range = changes from main
+    const fromSHA = mergeBaseFor(`${remoteName}/main`, change.localSHA)
     return [fromSHA, change.localSHA]
   } else {
     // push can be fast forward or not (push -f)

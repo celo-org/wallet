@@ -59,7 +59,7 @@ exports[`CashinInSuccess renders correctly with a provider 1`] = `
         }
       }
     >
-      cicoSuccess.bodyWithProvider
+      cicoSuccess.bodyWithProvider, {"provider":"Moonpay"}
     </Text>
   </View>
   <View

@@ -249,7 +249,7 @@ exports[`renders for gold to dollar exchange properly 1`] = `
                 }
               }
             >
-              feedItemExchangeCeloInfo
+              feedItemExchangeCeloInfo, {"amount":"200.000","price":"-"}
             </Text>
           </View>
         </View>

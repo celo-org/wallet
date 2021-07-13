@@ -250,7 +250,7 @@ exports[`transfer feed item renders correctly for faucet 1`] = `
           }
         }
       >
-        feedItemFaucetInfo
+        feedItemFaucetInfo, {"context":null,"faucet":"Alfajores"}
       </Text>
     </View>
   </View>
@@ -369,7 +369,7 @@ exports[`transfer feed item renders correctly for known received 1`] = `
             }
           }
         >
-          feedItemReceivedTitle
+          feedItemReceivedTitle, {"displayName":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}
@@ -411,7 +411,7 @@ exports[`transfer feed item renders correctly for known received 1`] = `
           }
         }
       >
-        feedItemReceivedInfo
+        feedItemReceivedInfo, {"context":"noComment","comment":""}
       </Text>
     </View>
   </View>
@@ -530,7 +530,7 @@ exports[`transfer feed item renders correctly for known sent 1`] = `
             }
           }
         >
-          John Doe
+          feedItemSentTitle, {"displayName":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}
@@ -570,7 +570,7 @@ exports[`transfer feed item renders correctly for known sent 1`] = `
           }
         }
       >
-        feedItemSentInfo
+        feedItemSentInfo, {"context":"noComment","comment":""}
       </Text>
     </View>
   </View>
@@ -697,7 +697,7 @@ exports[`transfer feed item renders correctly for known sent invite 1`] = `
           }
         }
       >
-        feedItemInviteSentInfo
+        feedItemInviteSentInfo, {"context":"noInviteeDetails"}
       </Text>
     </View>
   </View>
@@ -816,7 +816,7 @@ exports[`transfer feed item renders correctly for known sent without recipient c
             }
           }
         >
-          John Doe
+          feedItemSentTitle, {"displayName":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}
@@ -856,7 +856,7 @@ exports[`transfer feed item renders correctly for known sent without recipient c
           }
         }
       >
-        feedItemSentInfo
+        feedItemSentInfo, {"context":"noComment","comment":""}
       </Text>
     </View>
   </View>
@@ -1102,7 +1102,7 @@ exports[`transfer feed item renders correctly for received 1`] = `
             }
           }
         >
-          feedItemReceivedTitle
+          feedItemReceivedTitle, {"displayName":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}
@@ -1144,7 +1144,7 @@ exports[`transfer feed item renders correctly for received 1`] = `
           }
         }
       >
-        feedItemReceivedInfo
+        feedItemReceivedInfo, {"context":"noComment","comment":""}
       </Text>
     </View>
   </View>
@@ -1392,7 +1392,7 @@ exports[`transfer feed item renders correctly for received with encrypted commen
             }
           }
         >
-          feedItemReceivedTitle
+          feedItemReceivedTitle, {"displayName":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}
@@ -1434,7 +1434,7 @@ exports[`transfer feed item renders correctly for received with encrypted commen
           }
         }
       >
-        feedItemReceivedInfo
+        feedItemReceivedInfo, {"context":null,"comment":"Rent request for June, it is already late!!!"}
       </Text>
     </View>
   </View>
@@ -1553,7 +1553,7 @@ exports[`transfer feed item renders correctly for sent 1`] = `
             }
           }
         >
-          John Doe
+          feedItemSentTitle, {"displayName":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}
@@ -1593,7 +1593,7 @@ exports[`transfer feed item renders correctly for sent 1`] = `
           }
         }
       >
-        feedItemSentInfo
+        feedItemSentInfo, {"context":"noComment","comment":""}
       </Text>
     </View>
   </View>
@@ -1720,7 +1720,7 @@ exports[`transfer feed item renders correctly for sent invite 1`] = `
           }
         }
       >
-        feedItemInviteSentInfo
+        feedItemInviteSentInfo, {"context":"noInviteeDetails"}
       </Text>
     </View>
   </View>
@@ -1839,7 +1839,7 @@ exports[`transfer feed item renders correctly for sent transaction 1`] = `
             }
           }
         >
-          John Doe
+          feedItemSentTitle, {"displayName":"John Doe"}
         </Text>
         <Text
           numberOfLines={1}
@@ -1879,7 +1879,7 @@ exports[`transfer feed item renders correctly for sent transaction 1`] = `
           }
         }
       >
-        feedItemSentInfo
+        feedItemSentInfo, {"context":null,"comment":"Rent request for June, it is already late!!!"}
       </Text>
     </View>
   </View>
@@ -1988,7 +1988,7 @@ exports[`transfer feed item renders correctly for sent with encrypted comment 1`
             }
           }
         >
-          walletFlow5:feedItemAddress
+          feedItemSentTitle, {"displayName":"walletFlow5:feedItemAddress, {\\"address\\":\\"0x1Ff4...Bc42\\"}"}
         </Text>
         <Text
           numberOfLines={1}
@@ -2028,7 +2028,7 @@ exports[`transfer feed item renders correctly for sent with encrypted comment 1`
           }
         }
       >
-        feedItemSentInfo
+        feedItemSentInfo, {"context":null,"comment":"Rent request for June, it is already late!!!"}
       </Text>
     </View>
   </View>

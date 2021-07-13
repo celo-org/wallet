@@ -210,8 +210,33 @@ interface OnboardingEventsProperties {
   [OnboardingEvents.pin_never_set]: undefined
 
   [OnboardingEvents.wallet_import_start]: undefined
-  [OnboardingEvents.wallet_import_complete]: undefined
+  [OnboardingEvents.wallet_import_phrase_updated]: {
+    wordCount: number
+    wordCountChange: number
+  }
+  [OnboardingEvents.wallet_import_submit]: {
+    useEmptyWallet: boolean
+  }
   [OnboardingEvents.wallet_import_cancel]: undefined
+  [OnboardingEvents.wallet_import_zero_balance]: {
+    account: string
+  }
+  [OnboardingEvents.wallet_import_phrase_invalid]: {
+    wordCount: number
+    invalidWordCount: number | undefined
+  }
+  [OnboardingEvents.wallet_import_phrase_correction_attempt]: undefined
+  [OnboardingEvents.wallet_import_phrase_correction_success]: {
+    attemptNumber: number
+  }
+  [OnboardingEvents.wallet_import_phrase_correction_failed]: {
+    timeout: boolean
+    error?: string
+  }
+  [OnboardingEvents.wallet_import_error]: {
+    error: string
+  }
+  [OnboardingEvents.wallet_import_success]: undefined
 
   [OnboardingEvents.invite_redeem_start]: undefined
   [OnboardingEvents.invite_redeem_complete]: undefined

@@ -8,6 +8,7 @@ import { ErrorDisplayType } from 'src/alert/reducer'
 import { SendOrigin } from 'src/analytics/types'
 import { TokenTransactionType } from 'src/apollo/types'
 import { DEFAULT_DAILY_PAYMENT_LIMIT_CUSD } from 'src/config'
+import i18n from 'src/i18n'
 import { AddressValidationType, E164NumberToAddressType } from 'src/identity/reducer'
 import { navigate } from 'src/navigator/NavigationService'
 import { Screens } from 'src/navigator/Screens'
@@ -138,7 +139,11 @@ describe('SendAmount', () => {
           buttonMessage: null,
           dismissAfter: null,
           displayMethod: ErrorDisplayType.BANNER,
-          message: 'needMoreFundsToSend',
+          message: i18n.t('needMoreFundsToSend', {
+            ns: 'global',
+            amountNeeded: '106.9852',
+            currencySymbol: '$',
+          }),
           title: null,
           type: 'ALERT/SHOW',
           underlyingError: 'needMoreFundsToSend',
@@ -167,7 +172,7 @@ describe('SendAmount', () => {
           buttonMessage: null,
           dismissAfter: 5000,
           displayMethod: ErrorDisplayType.BANNER,
-          message: 'requestLimitError',
+          message: i18n.t('requestLimitError', { ns: 'global', limit: 1000 }),
           title: null,
           type: 'ALERT/SHOW',
           underlyingError: 'requestLimitError',
@@ -199,7 +204,14 @@ describe('SendAmount', () => {
           buttonMessage: null,
           dismissAfter: 5000,
           displayMethod: ErrorDisplayType.BANNER,
-          message: 'paymentLimitReached',
+          message: i18n.t('paymentLimitReached', {
+            ns: 'global',
+            currencySymbol: '$',
+            dailyRemaining: '1330',
+            dailyLimit: '1330',
+            dailyRemainingcUSD: '1000.00',
+            dailyLimitcUSD: 1000,
+          }),
           title: null,
           type: 'ALERT/SHOW',
           underlyingError: 'paymentLimitReached',

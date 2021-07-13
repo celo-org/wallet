@@ -209,7 +209,7 @@ exports[`ExchangeTradeScreen renders correctly 1`] = `
               }
             }
           >
-            exchangeAmount
+            exchangeAmount, {"tokenName":"global:gold"}
           </Text>
           <View
             accessible={true}
@@ -243,7 +243,7 @@ exports[`ExchangeTradeScreen renders correctly 1`] = `
                 }
               }
             >
-              switchTo
+              switchTo, {"tokenName":"MXN"}
             </Text>
           </View>
         </View>

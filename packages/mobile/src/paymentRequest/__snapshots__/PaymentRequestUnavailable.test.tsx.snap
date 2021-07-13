@@ -33,7 +33,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        requestUnavailableHeader
+        requestUnavailableHeader, {"displayName":"Jane Doe"}
       </Text>
       <Text
         style={
@@ -47,7 +47,7 @@ exports[`renders correctly 1`] = `
           }
         }
       >
-        requestUnavailableBody
+        requestUnavailableBody, {"e164PhoneNumber":"+13105550000"}
       </Text>
     </View>
   </RCTScrollView>

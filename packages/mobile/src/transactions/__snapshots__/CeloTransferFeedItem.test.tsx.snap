@@ -55,7 +55,7 @@ exports[`CeloTransferFeedItem renders correctly 1`] = `
             }
           }
         >
-          feedItemGoldWithdrawal
+          feedItemGoldWithdrawal, {"displayName":"0xcc64...d23c"}
         </Text>
       </View>
       <View>
@@ -157,7 +157,7 @@ exports[`CeloTransferFeedItem renders correctly when there's a known address 1`]
             }
           }
         >
-          This is a Test
+          feedItemGoldReceived, {"displayName":"This is a Test"}
         </Text>
       </View>
       <View>

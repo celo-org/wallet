@@ -1,4 +1,4 @@
-import { MnemonicLanguages } from '@celo/utils/lib/account'
+import { MnemonicLanguages, normalizeMnemonic } from '@celo/utils/lib/account'
 import CryptoJS from 'crypto-js'
 import { useAsync } from 'react-async-hook'
 import { useDispatch, useSelector } from 'react-redux'
@@ -89,20 +89,22 @@ export function useAccountKey(): string | null {
   return asyncAccountKey.result || null
 }
 
+export function countMnemonicWords(phrase: string): number {
+  return [...phrase.trim().split(/\s+/)].length
+}
+
 // Because of a RN bug, we can't fully clean the text as the user types
 // https://github.com/facebook/react-native/issues/11068
 export function formatBackupPhraseOnEdit(phrase: string) {
   return phrase.replace(/\s+/gm, ' ')
 }
 
-// Note(Ashish) The wordlists seem to use NFD and contains lower-case words for English and Spanish.
-// I am not sure if the words are lower-case for Japanese as well but I am assuming that for now.
 export function formatBackupPhraseOnSubmit(phrase: string) {
-  return formatBackupPhraseOnEdit(phrase).trim().normalize('NFD').toLocaleLowerCase()
+  return normalizeMnemonic(phrase)
 }
 
 function isValidMnemonic(phrase: string, length: number) {
-  return !!phrase && formatBackupPhraseOnEdit(phrase).trim().split(/\s+/g).length === length
+  return !!phrase && countMnemonicWords(formatBackupPhraseOnEdit(phrase)) === length
 }
 
 export function isValidBackupPhrase(phrase: string) {

@@ -69,7 +69,7 @@ Array [
             }
             testID="OutgoingPaymentRequestNotification/1/Title"
           >
-            outgoingPaymentRequestNotificationTitle
+            outgoingPaymentRequestNotificationTitle, {"name":"5126608970"}
           </Text>
           <Text
             numberOfLines={1}
