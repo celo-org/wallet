@@ -7,14 +7,22 @@ export interface SingleDigitInputProps {
   inputValue: string
   inputPlaceholder: string
   onInputChange: (value: string) => void
+  forwardedRef: any
   testID?: string
 }
 
 type Props = SingleDigitInputProps
 
-export function SingleDigitInput({ inputValue, inputPlaceholder, onInputChange, testID }: Props) {
+export function SingleDigitInput({
+  inputValue,
+  inputPlaceholder,
+  onInputChange,
+  testID,
+  forwardedRef,
+}: Props) {
   return (
     <TextInput
+      ref={forwardedRef}
       value={inputValue}
       placeholder={inputPlaceholder}
       onChangeText={onInputChange}
